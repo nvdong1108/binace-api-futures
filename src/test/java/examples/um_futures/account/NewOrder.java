@@ -25,7 +25,7 @@ public final class NewOrder {
         parameters.put("type", "LIMIT");
         parameters.put("timeInForce", "GTC");
         parameters.put("quantity", quantity);
-        parameters.put("price", 66500);
+        parameters.put("price", price);
 
         try {
             String result = client.account().newOrder(parameters);

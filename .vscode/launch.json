@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AccountTradeList",
+            "request": "launch",
+            "mainClass": "examples.um_futures.account.AccountTradeList",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
+            "name": "CurrentAllOpenOrders",
+            "request": "launch",
+            "mainClass": "examples.um_futures.account.CurrentAllOpenOrders",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
+            "name": "AllOrders",
+            "request": "launch",
+            "mainClass": "examples.um_futures.account.AllOrders",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
+            "name": "AggTrades",
+            "request": "launch",
+            "mainClass": "examples.um_futures.market.AggTrades",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BotAplication<binance-futures-connector-java>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.binance.connector.futures.BotAplication",
+            "projectName": "binance-futures-connector-java",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=49316 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=binance-futures-connector-java"
+        }
+    ]
+}

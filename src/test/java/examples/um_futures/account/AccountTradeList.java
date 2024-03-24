@@ -19,7 +19,7 @@ public final class AccountTradeList {
         UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
 
         parameters.put("symbol", "BTCUSDT");
-
+        parameters.put("limit", "1");
         try {
             String result = client.account().accountTradeList(parameters);
             logger.info(result);

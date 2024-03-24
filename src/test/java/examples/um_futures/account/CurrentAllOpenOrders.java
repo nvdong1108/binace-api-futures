@@ -18,7 +18,7 @@ public final class CurrentAllOpenOrders {
 
         UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
 
-        parameters.put("symbol", "BNBUSDT");
+        parameters.put("symbol", "BTCUSDT");
 
         try {
             String result = client.account().currentAllOpenOrders(parameters);

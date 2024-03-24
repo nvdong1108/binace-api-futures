@@ -18,6 +18,7 @@ public final class MarkPrice {
         UMFuturesClientImpl client = new UMFuturesClientImpl();
 
         try {
+            parameters.put("symbol", "BTCUSDT");
             String result = client.market().markPrice(parameters);
             logger.info(result);
         } catch (BinanceConnectorException e) {

@@ -16,7 +16,7 @@ public final class MarkPrice {
         LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
 
         CMFuturesClientImpl client = new CMFuturesClientImpl();
-
+        parameters.put("symbol","BTCUSDT");
         try {
             String result = client.market().markPrice(parameters);
             logger.info(result);
