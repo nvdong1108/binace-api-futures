@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 
 @Component
@@ -31,34 +32,41 @@ public class SheduledTask {
 
     @Scheduled(cron = "*/5 * * * * *")
     private void callOrder(){
-        logger.info(" ****** Begin job ****** ");
-        parameters = new LinkedHashMap<>();
-        client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
-        try {
-            //getPriceCurrent();
+        sys(1);
+    }
+    @Scheduled(cron = "*/7 * * * * *")
+    private void createOrderNext(){
+        sys(2);
+    }
+
+    private synchronized void sys(int function){
+        if(function ==1 ){
             checkConditionCreateNewOrders();
-        } catch (BinanceConnectorException e) {
-            logger.error("fullErrMessage: {}", e.getMessage(), e);
-        } catch (BinanceClientException e) {
-            logger.error("fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
-                    e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
+        }else {
+            createOrderPending();
         }
+    }
+
+    private synchronized void createOrderPending(){
+        JSONObject tradeSuccess =transactionRecent();
+        String mostRecentSide = tradeSuccess.getString("side");
+        BigDecimal priceTransferRecentMost = new BigDecimal(tradeSuccess.getString("price"));
+        String result = client.account().currentAllOpenOrders(parameters);
+        JSONArray allOpenOrders = new JSONArray();
+
+
 
     }
     
     private synchronized boolean checkConditionCreateNewOrders(){
+        JSONObject tradeSuccess =transactionRecent();
+        String mostRecentSide = tradeSuccess.getString("side");
+        BigDecimal priceTransferRecentMost = new BigDecimal(tradeSuccess.getString("price"));
+
         parameters = new LinkedHashMap<>();
         parameters.put("symbol", "BTCUSDT");
-        parameters.put("limit",1);
-        //case 1 . count orders . 
-        // step 1 . check transaction  recent most is ( BUY or SELL ) 
-        String result = client.account().accountTradeList(parameters);
-        JSONArray jsonArray = new JSONArray(result);
-        JSONObject tradeSuccess = jsonArray.getJSONObject(0);
-        String mostRecentSide = tradeSuccess.getString("side");
-
         JSONArray allOpenOrders = new JSONArray(client.account().currentAllOpenOrders(parameters));
-        BigDecimal priceTransferRecentMost = new BigDecimal(tradeSuccess.getString("price"));
+        
         BigDecimal newOrderBuyMax = null;
         BigDecimal newOrderSELLLowest = null;
         for(int i = 0 ; i < allOpenOrders.length() ; i++){
@@ -90,12 +98,27 @@ public class SheduledTask {
             if(resultCompare == 0){
                 return false;
             }
-            if(resultCompare == 500){
+            if(resultCompare == 1){
                 newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
                 return true;
             }
             priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
-            if(resultCompare == 1000){
+            if(resultCompare == 2){
+                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                return true;
+            }
+            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
+            if(resultCompare == 3){
+                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                return true;
+            }
+            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
+            if(resultCompare == 4){
+                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                return true;
+            }
+            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
+            if(resultCompare == 5){
                 newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
                 return true;
             }
@@ -107,32 +130,81 @@ public class SheduledTask {
                 // check quantity
                 //todo
             }
-
-            BigDecimal priceOrderBUYCalcu = priceTransferRecentMost.add(SPACE_PRICE);
+            BigDecimal priceOrderBUYCalcu = priceTransferRecentMost.subtract(SPACE_PRICE);
             if(newOrderBuyMax == null){
                 double priceOrderBUY =priceOrderBUYCalcu.doubleValue();
                 newOrders(priceOrderBUY, "BUY");
+                return true;
             }
             int resultCompare = comparePrice(priceOrderBUYCalcu,newOrderBuyMax);
             if(resultCompare == 0){
                 return false;
             }
-            if(resultCompare == 500){
+            if(resultCompare == 1){
                 newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
                 return true;
             }
-            priceOrderBUYCalcu = priceOrderBUYCalcu.add(SPACE_PRICE);
-            if(resultCompare == 1000){
+            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
+            if(resultCompare == 2){
                 newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
                 return true;
             }
-
+            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
+            if(resultCompare == 3){
+                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                return true;
+            }
+            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
+            if(resultCompare == 4){
+                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                return true;
+            }
+            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
+            if(resultCompare == 5){
+                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                return true;
+            }
         }
-
         return false;
     }
 
+    private JSONObject dataAllOrderOpen(){
+
+        LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
+        parameters.put("symbol", "BTCUSDT");
+        JSONArray allOpenOrders = new JSONArray(client.account().currentAllOpenOrders(parameters));
+        
+        JSONArray jsonArraySELL = new JSONArray();
+        JSONArray jsonArrayBUY = new JSONArray();
+        
+        for(int i = 0 ; i < allOpenOrders.length() ; i++){
+            JSONObject jsonObject = allOpenOrders.getJSONObject(i);
+            if("BUY".equals(jsonObject.getString("side"))){
+                jsonArrayBUY.put(jsonObject);
+            }else if("SELL".equals(jsonObject.getString("side"))) {
+                jsonArraySELL.put(jsonObject);
+            }
+        }
+
+
+        
+
+        return null;
+    }
+
+
+
+    private JSONObject transactionRecent(){
+        parameters = new LinkedHashMap<>();
+        parameters.put("symbol", "BTCUSDT");
+        parameters.put("limit",1);
+        String result = client.account().accountTradeList(parameters);
+        JSONArray jsonArray = new JSONArray(result);
+        return (jsonArray==null|| jsonArray.isEmpty())?null:(jsonArray.getJSONObject(0));
+    }
+
     private void newOrders(double price,String side){
+        logger.info(" BEGIN : Create New Order {} price {}",side,price);
         parameters = new LinkedHashMap<>();
         parameters.put("symbol", "BTCUSDT");
         parameters.put("side", side);
@@ -140,10 +212,9 @@ public class SheduledTask {
         parameters.put("timeInForce", "GTC");
         parameters.put("quantity", quantity);
         parameters.put("price", price);
-
         try {
             String result = client.account().newOrder(parameters);
-            logger.info(result);
+            logger.info(" RETURN : create Order {} ",result);
         } catch (BinanceConnectorException e) {
             logger.error("fullErrMessage: {}", e.getMessage(), e);
         } catch (BinanceClientException e) {
@@ -159,11 +230,23 @@ public class SheduledTask {
     }
     spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
     if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 500;
+        return 1;
     }
     spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
     if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 1000;
+        return 2;
+    }
+    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
+    if(spacePrice.compareTo(new BigDecimal(50))!=1){
+        return 3;
+    }
+    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
+    if(spacePrice.compareTo(new BigDecimal(50))!=1){
+        return 4;
+    }
+    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
+    if(spacePrice.compareTo(new BigDecimal(50))!=1){
+        return 5;
     }
     return -999;
    }
