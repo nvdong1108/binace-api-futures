@@ -19,6 +19,7 @@ public final class PositionInformation {
         UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
 
         try {
+            parameters.put("symbol", "BTCUSDT");
             String result = client.account().positionInformation(parameters);
             logger.info(result);
         } catch (BinanceConnectorException e) {

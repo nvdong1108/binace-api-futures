@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PositionInformation",
+            "request": "launch",
+            "mainClass": "examples.um_futures.account.PositionInformation",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
             "name": "AccountTradeList",
             "request": "launch",
             "mainClass": "examples.um_futures.account.AccountTradeList",

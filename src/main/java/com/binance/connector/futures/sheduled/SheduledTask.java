@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
@@ -25,37 +26,40 @@ public class SheduledTask {
 
     private BigDecimal SPACE_PRICE =  new BigDecimal("200");
     
-    private double quantity = 0.01;
+    private final double TRADE_QUANTITY= 0.01;
+
+    private final double MIN_HOLD_QUANTITY= 0.1;
+
+    private double START_PRICE = 71000;
+
+    private Double positionAmt= null;
+
+
 
     UMFuturesClientImpl client ; 
     LinkedHashMap<String, Object> parameters ; 
 
     @Scheduled(cron = "*/5 * * * * *")
     private void callOrder(){
-        sys(1);
+        checkConditionCreateNewOrders();
     }
-    @Scheduled(cron = "*/7 * * * * *")
-    private void createOrderNext(){
-        sys(2);
+    @Scheduled(cron = "*/12 * * * * *")
+    private void loadInformation() {
+        getPositionCurrent();
     }
 
-    private synchronized void sys(int function){
-        if(function ==1 ){
-            checkConditionCreateNewOrders();
-        }else {
-            createOrderPending();
+    private synchronized JSONObject getPositionCurrent(){
+        LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
+        parameters.put("symbol", "BTCUSDT");
+        String result = client.account().positionInformation(parameters);
+        if(result==null){
+            return null;
         }
-    }
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = jsonArray.getJSONObject(0);
+        positionAmt =Double.parseDouble(jsonObject.getString("positionAmt"));
 
-    private synchronized void createOrderPending(){
-        JSONObject tradeSuccess =transactionRecent();
-        String mostRecentSide = tradeSuccess.getString("side");
-        BigDecimal priceTransferRecentMost = new BigDecimal(tradeSuccess.getString("price"));
-        String result = client.account().currentAllOpenOrders(parameters);
-        JSONArray allOpenOrders = new JSONArray();
-
-
-
+        return jsonObject;
     }
     
     private synchronized boolean checkConditionCreateNewOrders(){
@@ -185,10 +189,6 @@ public class SheduledTask {
                 jsonArraySELL.put(jsonObject);
             }
         }
-
-
-        
-
         return null;
     }
 
@@ -204,15 +204,31 @@ public class SheduledTask {
     }
 
     private void newOrders(double price,String side){
-        logger.info(" BEGIN : Create New Order {} price {}",side,price);
-        parameters = new LinkedHashMap<>();
-        parameters.put("symbol", "BTCUSDT");
-        parameters.put("side", side);
-        parameters.put("type", "LIMIT");
-        parameters.put("timeInForce", "GTC");
-        parameters.put("quantity", quantity);
-        parameters.put("price", price);
         try {
+            logger.info(" BEGIN : Create New Order {} price {}",side,price);
+            if("SELL".equals(side)){
+                if(positionAmt ==null){
+                    if(logger.isDebugEnabled()){
+                        logger.debug(" RETURN : New Order because positionAmt =null");
+                    }
+                    return ;
+                }
+                if(positionAmt<=TRADE_QUANTITY){
+                    if(logger.isDebugEnabled()){
+                        logger.debug(" RETURN : New Order because positionAmt is {} <=  {}",positionAmt,TRADE_QUANTITY);
+                    }
+                    return;
+                }
+            }
+            
+            parameters = new LinkedHashMap<>();
+            parameters.put("symbol", "BTCUSDT");
+            parameters.put("side", side);
+            parameters.put("type", "LIMIT");
+            parameters.put("timeInForce", "GTC");
+            parameters.put("quantity", TRADE_QUANTITY);
+            parameters.put("price", price);
+       
             String result = client.account().newOrder(parameters);
             logger.info(" RETURN : create Order {} ",result);
         } catch (BinanceConnectorException e) {
