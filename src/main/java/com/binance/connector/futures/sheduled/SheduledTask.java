@@ -5,17 +5,17 @@ import com.binance.connector.futures.client.exceptions.BinanceClientException;
 import com.binance.connector.futures.client.exceptions.BinanceConnectorException;
 import com.binance.connector.futures.client.impl.UMFuturesClientImpl;
 import com.binance.connector.futures.config.PrivateConfig;
+import com.binance.connector.futures.controller.ApiOrdersController;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
 
 @Component
@@ -34,19 +34,27 @@ public class SheduledTask {
 
     private Double positionAmt= null;
 
+    @Autowired
+    ApiOrdersController apiOrdersContronller;
 
+    @Autowired
+    MyStartupRunner myStartupRunner;
 
-    UMFuturesClientImpl client ; 
+    UMFuturesClientImpl client  = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL); 
     LinkedHashMap<String, Object> parameters ; 
 
-    @Scheduled(cron = "*/5 * * * * *")
+    //@Scheduled(cron = "*/5 * * * * *")
     private void callOrder(){
-        checkConditionCreateNewOrders();
+        if(myStartupRunner.getResultInitSuccess() && positionAmt!=null){
+            //checkConditionCreateNewOrders();
+        }
     }
-    @Scheduled(cron = "*/12 * * * * *")
+   // @Scheduled(cron = "*/12 * * * * *")
     private void loadInformation() {
         getPositionCurrent();
     }
+
+    
 
     private synchronized JSONObject getPositionCurrent(){
         LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
@@ -90,12 +98,12 @@ public class SheduledTask {
         if("BUY".equals(mostRecentSide)){
             if(newOrderBuyMax == null){
                 // not order BUy Next => new Order BUY
-                newOrders(priceTransferRecentMost.subtract(SPACE_PRICE).doubleValue(), "BUY");
+                apiOrdersContronller.newOrders(priceTransferRecentMost.subtract(SPACE_PRICE).doubleValue(),TRADE_QUANTITY, "BUY");
             }
             BigDecimal priceOrderSELLCalcu = priceTransferRecentMost.add(SPACE_PRICE);
             if(newOrderSELLLowest ==null){
                 double priceOrderSELL =priceOrderSELLCalcu.doubleValue();
-                newOrders(priceOrderSELL, "SELL");
+                apiOrdersContronller.newOrders(priceOrderSELL,TRADE_QUANTITY, "SELL");
                 return true;
             }
             int resultCompare = comparePrice(priceOrderSELLCalcu,newOrderSELLLowest);
@@ -103,27 +111,27 @@ public class SheduledTask {
                 return false;
             }
             if(resultCompare == 1){
-                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
                 return true;
             }
             priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
             if(resultCompare == 2){
-                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
                 return true;
             }
             priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
             if(resultCompare == 3){
-                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
                 return true;
             }
             priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
             if(resultCompare == 4){
-                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
                 return true;
             }
             priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
             if(resultCompare == 5){
-                newOrders(priceOrderSELLCalcu.doubleValue(), "SELL");
+                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
                 return true;
             }
             return false;
@@ -137,7 +145,7 @@ public class SheduledTask {
             BigDecimal priceOrderBUYCalcu = priceTransferRecentMost.subtract(SPACE_PRICE);
             if(newOrderBuyMax == null){
                 double priceOrderBUY =priceOrderBUYCalcu.doubleValue();
-                newOrders(priceOrderBUY, "BUY");
+                apiOrdersContronller.newOrders(priceOrderBUY,TRADE_QUANTITY, "BUY");
                 return true;
             }
             int resultCompare = comparePrice(priceOrderBUYCalcu,newOrderBuyMax);
@@ -145,27 +153,27 @@ public class SheduledTask {
                 return false;
             }
             if(resultCompare == 1){
-                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
                 return true;
             }
             priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
             if(resultCompare == 2){
-                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
                 return true;
             }
             priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
             if(resultCompare == 3){
-                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
                 return true;
             }
             priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
             if(resultCompare == 4){
-                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
                 return true;
             }
             priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
             if(resultCompare == 5){
-                newOrders(priceOrderBUYCalcu.doubleValue(), "BUY");
+                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
                 return true;
             }
         }
@@ -203,41 +211,7 @@ public class SheduledTask {
         return (jsonArray==null|| jsonArray.isEmpty())?null:(jsonArray.getJSONObject(0));
     }
 
-    private void newOrders(double price,String side){
-        try {
-            logger.info(" BEGIN : Create New Order {} price {}",side,price);
-            if("SELL".equals(side)){
-                if(positionAmt ==null){
-                    if(logger.isDebugEnabled()){
-                        logger.debug(" RETURN : New Order because positionAmt =null");
-                    }
-                    return ;
-                }
-                if(positionAmt<=TRADE_QUANTITY){
-                    if(logger.isDebugEnabled()){
-                        logger.debug(" RETURN : New Order because positionAmt is {} <=  {}",positionAmt,TRADE_QUANTITY);
-                    }
-                    return;
-                }
-            }
-            
-            parameters = new LinkedHashMap<>();
-            parameters.put("symbol", "BTCUSDT");
-            parameters.put("side", side);
-            parameters.put("type", "LIMIT");
-            parameters.put("timeInForce", "GTC");
-            parameters.put("quantity", TRADE_QUANTITY);
-            parameters.put("price", price);
-       
-            String result = client.account().newOrder(parameters);
-            logger.info(" RETURN : create Order {} ",result);
-        } catch (BinanceConnectorException e) {
-            logger.error("fullErrMessage: {}", e.getMessage(), e);
-        } catch (BinanceClientException e) {
-            logger.error("fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
-                    e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
-        }
-    }
+    
 
    private int comparePrice(BigDecimal price , BigDecimal priceCompare) {
     BigDecimal spacePrice =  price.subtract(priceCompare).abs();

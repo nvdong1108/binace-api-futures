@@ -10,7 +10,7 @@ public final class SymbolTicker {
         UMWebsocketClientImpl client = new UMWebsocketClientImpl();
         client.symbolTicker("btcusdt", ((event) -> {
             System.out.println(event);
-            client.closeAllConnections();
+            //client.closeAllConnections();
         }));
     }
 }
