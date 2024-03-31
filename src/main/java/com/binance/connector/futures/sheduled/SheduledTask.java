@@ -1,11 +1,9 @@
 package com.binance.connector.futures.sheduled;
 
-
-import com.binance.connector.futures.client.exceptions.BinanceClientException;
-import com.binance.connector.futures.client.exceptions.BinanceConnectorException;
 import com.binance.connector.futures.client.impl.UMFuturesClientImpl;
+import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.config.PrivateConfig;
-import com.binance.connector.futures.controller.ApiOrdersController;
+import com.binance.connector.futures.controller.ApiController;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,228 +15,117 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 @Component
 public class SheduledTask {
 
 
     private final static Logger logger = LoggerFactory.getLogger(SheduledTask.class);
-
-    private BigDecimal SPACE_PRICE =  new BigDecimal("200");
-    
-    private final double TRADE_QUANTITY= 0.01;
-
-    private final double MIN_HOLD_QUANTITY= 0.1;
-
-    private double START_PRICE = 71000;
-
-    private Double positionAmt= null;
+    private Double positionAmtCurrent= null;
 
     @Autowired
-    ApiOrdersController apiOrdersContronller;
+    ApiController apiController;
 
     @Autowired
     MyStartupRunner myStartupRunner;
 
-    UMFuturesClientImpl client  = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL); 
     LinkedHashMap<String, Object> parameters ; 
 
-    //@Scheduled(cron = "*/5 * * * * *")
-    private void callOrder(){
-        if(myStartupRunner.getResultInitSuccess() && positionAmt!=null){
-            //checkConditionCreateNewOrders();
+    
+    @Scheduled(cron = "*/6 * * * * *")
+    private void jobOpenBuy() {
+        if(myStartupRunner.getResultInitSuccess()){
+            openBUY();
         }
     }
-   // @Scheduled(cron = "*/12 * * * * *")
-    private void loadInformation() {
-        getPositionCurrent();
-    }
-
     
-
-    private synchronized JSONObject getPositionCurrent(){
-        LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
-        parameters.put("symbol", "BTCUSDT");
-        String result = client.account().positionInformation(parameters);
-        if(result==null){
-            return null;
+    @Scheduled(cron = "*/5 * * * * *")
+    private void jobOpenSell(){
+        if(myStartupRunner.getResultInitSuccess()){
+           // openSELL();
         }
-        JSONArray jsonArray = new JSONArray();
-        JSONObject jsonObject = jsonArray.getJSONObject(0);
-        positionAmt =Double.parseDouble(jsonObject.getString("positionAmt"));
-
-        return jsonObject;
     }
-    
-    private synchronized boolean checkConditionCreateNewOrders(){
-        JSONObject tradeSuccess =transactionRecent();
-        String mostRecentSide = tradeSuccess.getString("side");
-        BigDecimal priceTransferRecentMost = new BigDecimal(tradeSuccess.getString("price"));
 
-        parameters = new LinkedHashMap<>();
-        parameters.put("symbol", "BTCUSDT");
-        JSONArray allOpenOrders = new JSONArray(client.account().currentAllOpenOrders(parameters));
+    private void openBUY(){
+        double markPrice = apiController.getMarkPrice();
+        double priceBegin = MyStartupRunner.priceBegin;
+        if(markPrice > priceBegin){
+            //todo
+        }
+        double priceDifference = priceBegin - markPrice; 
         
-        BigDecimal newOrderBuyMax = null;
-        BigDecimal newOrderSELLLowest = null;
-        for(int i = 0 ; i < allOpenOrders.length() ; i++){
-            JSONObject jsonObject = allOpenOrders.getJSONObject(i);
-            BigDecimal priceOfOrder = new BigDecimal(jsonObject.getString("price"));
-            if("BUY".equals(jsonObject.getString("side"))){
-                if(newOrderBuyMax ==null || newOrderBuyMax.compareTo(priceOfOrder)==-1){
-                    newOrderBuyMax=priceOfOrder;
+        int difference = Integer.parseInt(String.valueOf(priceDifference))%Integer.parseInt(String.valueOf(Constant.SPACE_PRICE));
+        double priceOpensOrder = markPrice+Double.parseDouble(String.valueOf(difference));
+        List<Double> openOrders = apiController.getListpricesOpens(Constant.SIDE_BUY);
+        int countLoop =Constant.QUANTIYY_OPEN_ORDES+3;
+        for(int i = 0 ; i < countLoop; i++){
+            priceOpensOrder = priceOpensOrder-Constant.SPACE_PRICE;
+            int resul = comparePrice(priceOpensOrder,openOrders.get(i));
+            if(i <=Constant.QUANTIYY_OPEN_ORDES){
+                if(resul ==0 ){
+                    // had opensOrders.
+                    continue;
                 }
-            }else if("SELL".equals(jsonObject.getString("side"))) {
-                if(newOrderSELLLowest==null || newOrderSELLLowest.compareTo(priceOfOrder)==1){
-                    newOrderSELLLowest = priceOfOrder;
+                if (resul==1) {
+                    // go opens Orders.
+                   apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_BUY);
+                }else {
+                    //todo
+                }
+            }else if(i>Constant.QUANTIYY_OPEN_ORDES){
+                if(resul==1 ){
+                   // cancel opens Orders.
                 }
             }
         }
 
-        if("BUY".equals(mostRecentSide)){
-            if(newOrderBuyMax == null){
-                // not order BUy Next => new Order BUY
-                apiOrdersContronller.newOrders(priceTransferRecentMost.subtract(SPACE_PRICE).doubleValue(),TRADE_QUANTITY, "BUY");
-            }
-            BigDecimal priceOrderSELLCalcu = priceTransferRecentMost.add(SPACE_PRICE);
-            if(newOrderSELLLowest ==null){
-                double priceOrderSELL =priceOrderSELLCalcu.doubleValue();
-                apiOrdersContronller.newOrders(priceOrderSELL,TRADE_QUANTITY, "SELL");
-                return true;
-            }
-            int resultCompare = comparePrice(priceOrderSELLCalcu,newOrderSELLLowest);
-            if(resultCompare == 0){
-                return false;
-            }
-            if(resultCompare == 1){
-                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
-                return true;
-            }
-            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
-            if(resultCompare == 2){
-                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
-                return true;
-            }
-            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
-            if(resultCompare == 3){
-                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
-                return true;
-            }
-            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
-            if(resultCompare == 4){
-                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
-                return true;
-            }
-            priceOrderSELLCalcu = priceOrderSELLCalcu.add(SPACE_PRICE);
-            if(resultCompare == 5){
-                apiOrdersContronller.newOrders(priceOrderSELLCalcu.doubleValue(),TRADE_QUANTITY, "SELL");
-                return true;
-            }
-            return false;
+    }
+
+    private void openSELL(){
+        double sizePositionBegin = MyStartupRunner.priceBegin;
+        double sizePositionCurrenr = apiController.getSizePosition();
+        double sizePositionDiff = sizePositionBegin - sizePositionCurrenr;
+        if(sizePositionDiff <= 0 ){
+            return;
         }
-        if("SELL".equals(mostRecentSide)){
-            if(newOrderSELLLowest==null){
-                // not Order SELL Open => create new Order SELL . 
-                // check quantity
-                //todo
+        double markPrice = apiController.getMarkPrice();
+        double priceBegin = MyStartupRunner.priceBegin;
+        if(markPrice > priceBegin){
+            //todo
+        }
+        double priceDifference = priceBegin - markPrice; 
+        int difference = Integer.parseInt(String.valueOf(priceDifference))%Integer.parseInt(String.valueOf(Constant.SPACE_PRICE));
+        int countAllOpensOrdersSELL = Integer.parseInt(String.valueOf(priceDifference))/Integer.parseInt(String.valueOf(Constant.SPACE_PRICE));
+        int countOpenSellRemaining =Integer.parseInt(sizePositionDiff+"")/ Integer.parseInt(""+Constant.QUANTITY_ONE_EXCHANGE); ;
+        if (countAllOpensOrdersSELL!=countOpenSellRemaining){
+            logger.error("countAllOpensOrdersSELL {} != countOpenSellRemaining {}  " , countAllOpensOrdersSELL,countOpenSellRemaining);
+            //todo
+        }
+        double priceOpensOrder = markPrice+Double.parseDouble(String.valueOf(difference))-Double.valueOf(300);
+        List<Double> openOrders = apiController.getListpricesOpens(Constant.SIDE_SELL);
+       
+        for(int i = 0 ; i < countOpenSellRemaining ; i++){
+            priceOpensOrder = priceOpensOrder+Constant.SPACE_PRICE;
+            int resul = comparePrice(priceOpensOrder,openOrders.get(i));
+            if(resul==1){
+                apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_SELL);
+                countOpenSellRemaining--;
             }
-            BigDecimal priceOrderBUYCalcu = priceTransferRecentMost.subtract(SPACE_PRICE);
-            if(newOrderBuyMax == null){
-                double priceOrderBUY =priceOrderBUYCalcu.doubleValue();
-                apiOrdersContronller.newOrders(priceOrderBUY,TRADE_QUANTITY, "BUY");
-                return true;
-            }
-            int resultCompare = comparePrice(priceOrderBUYCalcu,newOrderBuyMax);
-            if(resultCompare == 0){
-                return false;
-            }
-            if(resultCompare == 1){
-                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
-                return true;
-            }
-            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
-            if(resultCompare == 2){
-                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
-                return true;
-            }
-            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
-            if(resultCompare == 3){
-                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
-                return true;
-            }
-            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
-            if(resultCompare == 4){
-                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
-                return true;
-            }
-            priceOrderBUYCalcu = priceOrderBUYCalcu.subtract(SPACE_PRICE);
-            if(resultCompare == 5){
-                apiOrdersContronller.newOrders(priceOrderBUYCalcu.doubleValue(),TRADE_QUANTITY, "BUY");
-                return true;
+            if(countOpenSellRemaining==0){
+                break;
             }
         }
-        return false;
     }
 
-    private JSONObject dataAllOrderOpen(){
-
-        LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
-        parameters.put("symbol", "BTCUSDT");
-        JSONArray allOpenOrders = new JSONArray(client.account().currentAllOpenOrders(parameters));
-        
-        JSONArray jsonArraySELL = new JSONArray();
-        JSONArray jsonArrayBUY = new JSONArray();
-        
-        for(int i = 0 ; i < allOpenOrders.length() ; i++){
-            JSONObject jsonObject = allOpenOrders.getJSONObject(i);
-            if("BUY".equals(jsonObject.getString("side"))){
-                jsonArrayBUY.put(jsonObject);
-            }else if("SELL".equals(jsonObject.getString("side"))) {
-                jsonArraySELL.put(jsonObject);
-            }
-        }
-        return null;
+   private int comparePrice(double price , double priceCompare) {
+    double spacePrice = Math.abs(price-priceCompare);
+    int difference = Integer.parseInt(String.valueOf(spacePrice))%Integer.parseInt(String.valueOf(Constant.SPACE_PRICE));
+    if(difference >Constant.PRICE_LIMIT_DIFF){
+        return -1;
     }
-
-
-
-    private JSONObject transactionRecent(){
-        parameters = new LinkedHashMap<>();
-        parameters.put("symbol", "BTCUSDT");
-        parameters.put("limit",1);
-        String result = client.account().accountTradeList(parameters);
-        JSONArray jsonArray = new JSONArray(result);
-        return (jsonArray==null|| jsonArray.isEmpty())?null:(jsonArray.getJSONObject(0));
-    }
-
-    
-
-   private int comparePrice(BigDecimal price , BigDecimal priceCompare) {
-    BigDecimal spacePrice =  price.subtract(priceCompare).abs();
-    if(spacePrice.compareTo(new BigDecimal(50)) !=1){
-        return 0;
-    }
-    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
-    if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 1;
-    }
-    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
-    if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 2;
-    }
-    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
-    if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 3;
-    }
-    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
-    if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 4;
-    }
-    spacePrice=  spacePrice.subtract(SPACE_PRICE).abs();
-    if(spacePrice.compareTo(new BigDecimal(50))!=1){
-        return 5;
-    }
-    return -999;
+    int value = Integer.parseInt(String.valueOf(spacePrice))%Integer.parseInt(String.valueOf(Constant.SPACE_PRICE));
+    return value;
    }
    
 

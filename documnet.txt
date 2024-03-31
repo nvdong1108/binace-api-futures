@@ -10,7 +10,12 @@
 
 Case xuống 1 đường . 
 69,500 : buy 
-BUY gần nhất  => open SELL + 500$ 
+BUY gần nhất  => open SELL + 500$. 
+kiểm tra đã có lệnh SELLL được mở chưa chưa? 
+kiểm tra bằng cách lệnh Open SELL giá buy buy+ 500$. 
+case 1. tao openOrders SELL thành công mới  giá sàn mới đi qua => giá sell == giá đặt limit. 
+case 2. người lại giá sell > giá đặt limit. 
+
 
 69,500 buy 
 BUY gần nhất => open SELL + 500$ 
@@ -31,4 +36,78 @@ SELL gần nhát => open BUY
 2 . Count open orders BUY >= 10 
 	=> return ;
 
-JOB : 
+
+
+Solution 1. 
+ //******* tạo job tạo lệnh BUY.  *********///
+size bắt đầu = 0.1 . 
+double giá bắt đầu open position 70,000$
+double giá hiện tại . 69,800$ 
+space giá = 300$. 
+số lệnh OpenOrders BUY = 10
+
+function (giá hiện tại, giá bắt đầu chiến lược){
+if( giá hiện tại > giá bắt đầu chiến lược ){
+ return giá bắt đầu chiến lược - khoảng 
+}
+int giá chênh lệch =  giá bắt đầu lệnh - giá hiện tại ;  \\ex : (70,000 - 69,800 = 200$ ) ; 
+
+int giá lệch hơn   = giá chênh lệch % khoảng giá 
+// ex : 200 % 300 = 200,  490%300 = 190  , 720 % 300 = 120 ; 
+// 				69,800$ , 			69,510$ , 			69,280$ . 
+double  giá BUY open: giá hiện tại + giá lệch hơn= 70,000 $ ;  (69,510 + 190 = 69,700$)
+for ( 15 lần  ){
+	double giá BUY open =   giá BUY open - khoảng giá . 
+	function kiểm tra có lệnh openOrders BUY ở mức giá gần nhất chưa ? 
+	=>  
+	if( i < = 10 ){
+	 	- if  chưa có thì mở một opensOrdẻ 
+	 		else tiếp tục. 
+	}else  i> 10 {
+		 - if có thì cancel OpensPostion 
+		 else tiếp tục ; 
+	}
+}
+} // end function 
+
+
+Tạo job tạo lệnh SELL.
+size bắt đầu = 0.1 . 
+double quantityExchange = 0.01 ;
+double giá bắt đầu open position 70,000$
+double giá hiện tại . 69,800$ 
+space giá = 300$. 
+double sizePositions = 0.15 ; 
+double size chênh lệch = sizePosition - size bắt đâu ; 
+if(size chênh lệch <= 0  ){
+	return ;
+}
+
+function (giá hiện tại, giá bắt đầu chiến lược){
+	int giá chênh lệch =  giá bắt đầu lệnh - giá hiện tại ;  \\ex : (70,000 - 69,800 = 200$ ) ; 
+	int countOpenPositionSELL = giá chênh lêch / khoảng giá ; \\ex : 200\300 = 0 ; 740/300 = 2 ; 
+	int giá lệch hơn   = giá chênh lệch % khoảng giá  ; Ex : 740/300 = 140$ ; => 69,260$ giá hiện tại 
+	int countOpenSellRemaining = countOpenPostionSELL ;
+	double giá SELL Open = (giá hiện tại +  giá lệch hơn - 300);
+	if (countOpenPostionSELL == (size chênh lệch/quantityExchange) ) {
+		for ( int i  = 0 ; i < countOpenPostionSELL ; i++  ){
+			giá SELL Open = giá SELL Open + 300; 
+			function kiểm tra đã có lệnh SELL được mở tại giá SELL open chưa ? 
+			if Chưa có 
+			=> thì mở ra và countOpenSellRemaining--;
+			else có rồi 
+			kiểm tra countOpenSellRemaining==0 => break for.  
+		}
+	}else {
+		//todo
+	}
+}
+
+
+
+	
+
+
+
+
+
