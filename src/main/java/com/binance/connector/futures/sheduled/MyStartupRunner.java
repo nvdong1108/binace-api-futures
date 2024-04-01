@@ -14,8 +14,8 @@ import jakarta.annotation.PostConstruct;
 public class MyStartupRunner {
 
     private boolean initSuccess = false;
-    public static double priceBegin;
-
+    public static int priceBegin;
+    public static double sizePositionBegin;
     @Autowired
     ApiController api;
 
@@ -23,19 +23,18 @@ public class MyStartupRunner {
     public void init() {
         priceBegin=api.getMarkPrice();
         api.cancelAllOpenOrders();
+        sizePositionBegin=api.getSizePosition();
         openAllOrder();
     }
 
     private void openAllOrder(){
-        double priceOpenOrder = priceBegin;
+        int priceOpenOrder = priceBegin;
         for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
-            priceOpenOrder = priceOpenOrder - Constant.SPACE_PRICE;
+            priceOpenOrder = priceOpenOrder - Constant.SPACE_PRICE_INT;
             api.newOrders(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, "BUY");
         }
         setResultInitSuccess(true);
     }
-
-    
     public boolean getResultInitSuccess(){
         return this.initSuccess;
     }
