@@ -115,47 +115,23 @@ public class ApiController {
         return Double.parseDouble(df.format(Double.parseDouble(jsonObject.getString("positionAmt"))));
     }
 
-    public  JSONArray getCurrentAllOpenOrders(){
+    public JSONArray getCurrentAllOpenOrders(String _side){
         LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
         parameters.put("symbol", Constant.SYMBOL);
         JSONArray allOpenOrders = new JSONArray(client.account().currentAllOpenOrders(parameters));
-        return allOpenOrders;
-    }
-
-    public List<Integer> getListpricesOpens(String side){
-        JSONArray  jsonArray = getCurrentAllOpenOrders();
-        if(jsonArray==null || jsonArray.isEmpty()){
+        if(allOpenOrders==null || allOpenOrders.isEmpty()){
             return null;
         }
-        List<Integer> listPrice = new ArrayList<>();
-        for(int i = 0 ; i < jsonArray.length() ; i ++){
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            String sideOpens = jsonObject.getString("side");
-            String price = jsonObject.getString("price");
-            if(side.equals(sideOpens) ){
-                Integer result = (int)Double.parseDouble(price);
-                listPrice.add(result);
+        JSONArray result = new JSONArray();
+        for(int i = 0 ; i<allOpenOrders.length() ;i++){
+            JSONObject jsonObject = allOpenOrders.getJSONObject(i);
+            String side = jsonObject.getString("side");
+            if(_side.equalsIgnoreCase(side)){
+                result.put(jsonObject);
             }
         }
-        if(Constant.SIDE_BUY.equals(side)){
-            Collections.sort(listPrice,new Comparator<Integer>() {
-                @Override
-                public int compare(Integer d1 , Integer d2){
-                    return d2.compareTo(d1);
-                }
-            });
-        }else {
-            Collections.sort(listPrice,new Comparator<Integer>() {
-                @Override
-                public int compare(Integer d1 , Integer d2){
-                    return d1.compareTo(d2);
-                }
-            });
-        }
-        return listPrice;
+        return result;
     }
-
-
     public void cancelAllOpenOrders(){
         LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
         parameters.put("symbol", Constant.SYMBOL);

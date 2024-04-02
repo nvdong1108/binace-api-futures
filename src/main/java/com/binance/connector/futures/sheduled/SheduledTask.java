@@ -4,6 +4,7 @@ import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
 
+import org.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,29 +53,24 @@ public class SheduledTask {
         
         int difference = priceDifference%Constant.SPACE_PRICE_INT;
         int priceOpensOrder = markPrice+difference;
-        List<Integer> openOrders = apiController.getListpricesOpens(Constant.SIDE_BUY);
-        int countLoop =openOrders.size()<Constant.QUANTIYY_OPEN_ORDES?Constant.QUANTIYY_OPEN_ORDES:openOrders.size();     
+        JSONArray jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_BUY);
+        if( jsonArray!=null &&  jsonArray.length()>Constant.QUANTIYY_OPEN_ORDES){
+            return;
+        }
         int countOpensSuccess = 0 ;
-        for(int i = 0 ; i < countLoop; i++){
+        for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES; i++){
             priceOpensOrder = priceOpensOrder-Constant.SPACE_PRICE_INT;
-            if(i<openOrders.size() && i < Constant.QUANTIYY_OPEN_ORDES){
-                int resul = Common.comparePrice(priceOpensOrder,openOrders.get(i));
-                if(resul ==0 ){
-                    // had opensOrders.
-                    continue;
-                }
-                if (resul>=1) {
-                    // go opens Orders.
-                    apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_BUY);
-                    countOpensSuccess++;
-                }else {
-                    //todo
-                }
-            }else if((i+countOpensSuccess)<countLoop) {
-                apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_BUY);
-            } else if(i > Constant.QUANTIYY_OPEN_ORDES){
-                // cancel open order
-             }
+            boolean result = false;
+            if(jsonArray !=null && !jsonArray.isEmpty()){
+                result = Common.hadOpenOrder(jsonArray, priceOpensOrder);
+            }
+            if(result){
+                continue;
+            }       
+
+            apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_BUY);
+            countOpensSuccess++;
+
         }
         logger.debug( "***************  final function job buy ***************");
 
@@ -101,18 +97,19 @@ public class SheduledTask {
             //todo
         }
         int priceOpensOrder = markPrice+difference-Constant.SPACE_PRICE_INT;
-        List<Integer> openOrders = apiController.getListpricesOpens(Constant.SIDE_SELL);
+        JSONArray jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_SELL);
        
-        for(int i = 0 ; i < countOpenSellRemaining ; i++){
+        for(int i = 0 ; i < countAllOpensOrdersSELL ; i++){
             priceOpensOrder = priceOpensOrder+Constant.SPACE_PRICE_INT;
-            int resul =Common.comparePrice(priceOpensOrder,openOrders.get(i));
-            if(resul==1){
-                apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_SELL);
-                countOpenSellRemaining--;
+            boolean resul=false;
+            if(jsonArray!=null && !jsonArray.isEmpty()){
+                resul=Common.hadOpenOrder(jsonArray,priceOpensOrder);
             }
-            if(countOpenSellRemaining==0){
-                break;
+            if(resul){
+                continue;
             }
+            apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_SELL);
+            countOpenSellRemaining--;
         }
     }
 
