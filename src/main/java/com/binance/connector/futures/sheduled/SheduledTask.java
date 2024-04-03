@@ -12,7 +12,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 
 @Component
 public class SheduledTask {
@@ -29,14 +28,14 @@ public class SheduledTask {
     LinkedHashMap<String, Object> parameters ; 
 
     
-    @Scheduled(cron = "*/6 * * * * *")
+    @Scheduled(fixedDelay = 5000)
     private void jobOpenBuy() {
         if(myStartupRunner.getResultInitSuccess()){
             openBUY();
         }
     }
     
-    @Scheduled(cron = "*/5 * * * * *")
+    @Scheduled(fixedDelay = 5000)
     private void jobOpenSell(){
         if(myStartupRunner.getResultInitSuccess()){
            openSELL();
@@ -46,31 +45,34 @@ public class SheduledTask {
     private void openBUY(){
         int markPrice = apiController.getMarkPrice();
         int priceBegin = MyStartupRunner.priceBegin;
-        if(markPrice > priceBegin){
+        if(priceBegin<markPrice){
             //todo
-        }
-        int priceDifference = priceBegin - markPrice; 
-        
-        int difference = priceDifference%Constant.SPACE_PRICE_INT;
-        int priceOpensOrder = markPrice+difference;
-        JSONArray jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_BUY);
-        if( jsonArray!=null &&  jsonArray.length()>Constant.QUANTIYY_OPEN_ORDES){
             return;
         }
-        int countOpensSuccess = 0 ;
-        for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES; i++){
-            priceOpensOrder = priceOpensOrder-Constant.SPACE_PRICE_INT;
+        JSONArray jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_BUY);
+        if( jsonArray!=null){
+            if(jsonArray.length()>=Constant.QUANTIYY_OPEN_ORDES){
+                return;
+            }
+        }
+        int priceOpenOrders = ((priceBegin-markPrice)%Constant.SPACE_PRICE_INT) + markPrice;
+        for(int i = 0 ; i < Constant.MAX_OPEN_ORDES ; i ++){
+            priceOpenOrders=priceOpenOrders-Constant.SPACE_PRICE_INT;
             boolean result = false;
             if(jsonArray !=null && !jsonArray.isEmpty()){
-                result = Common.hadOpenOrder(jsonArray, priceOpensOrder);
+                result = Common.hadOpenOrder(jsonArray, priceOpenOrders);
             }
             if(result){
                 continue;
-            }       
+            }
+            apiController.newOrders(priceOpenOrders, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_BUY);
 
-            apiController.newOrders(priceOpensOrder, Constant.QUANTITY_ONE_EXCHANGE, Constant.SIDE_BUY);
-            countOpensSuccess++;
-
+            jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_BUY); 
+            if( jsonArray!=null){
+                if(jsonArray.length()>=Constant.QUANTIYY_OPEN_ORDES){
+                    return;
+                }
+            }
         }
         logger.debug( "***************  final function job buy ***************");
 
