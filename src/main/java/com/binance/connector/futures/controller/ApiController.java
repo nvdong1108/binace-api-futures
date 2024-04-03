@@ -95,9 +95,9 @@ public class ApiController {
      public int getMarkPrice(){
         LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
         parameters.put("symbol", Constant.SYMBOL);
-        String result = client.market().markPrice(parameters);
+        String result = client.market().tickerSymbol(parameters); 
         JSONObject jsonObject = new JSONObject(result);
-        String markPrice = jsonObject.getString("markPrice");
+        String markPrice = jsonObject.getString("price");
         logger.info("\n get price market BTCUSDT={}",markPrice,"\n");
         return  (int)Double.parseDouble(markPrice);
     }

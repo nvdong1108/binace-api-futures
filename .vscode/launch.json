@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ticker24H",
+            "request": "launch",
+            "mainClass": "examples.um_futures.market.Ticker24H",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
             "name": "SymbolTicker",
             "request": "launch",
             "mainClass": "examples.um_futures.websocket.SymbolTicker",

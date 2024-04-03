@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
+import java.util.Random;
 
 @Component
 public class SheduledTask {
@@ -28,7 +29,7 @@ public class SheduledTask {
     LinkedHashMap<String, Object> parameters ; 
 
     
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 7000)
     private void jobOpenBuy() {
         if(myStartupRunner.getResultInitSuccess()){
             openBUY();
@@ -77,7 +78,6 @@ public class SheduledTask {
         logger.debug( "***************  final function job buy ***************");
 
     }
-
     private void openSELL(){
         double sizePositionBegin = MyStartupRunner.sizePositionBegin;
         double sizePositionCurrenr = apiController.getSizePosition();

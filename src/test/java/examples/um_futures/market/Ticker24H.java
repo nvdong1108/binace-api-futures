@@ -18,7 +18,11 @@ public final class Ticker24H {
         UMFuturesClientImpl client = new UMFuturesClientImpl();
 
         try {
+            parameters.put("symbol", "BTCUSDT");
             String result = client.market().ticker24H(parameters);
+             result += client.market().tickerSymbol(parameters);
+
+             result += client.market().markPrice(parameters);
             logger.info(result);
         } catch (BinanceConnectorException e) {
             logger.error("fullErrMessage: {}", e.getMessage(), e);

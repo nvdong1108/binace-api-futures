@@ -1,2 +1,8 @@
-logs/
-target/
+/logs/
+*/logs/**
+**/logs/
+
+/target/
+*/target/**
+**/target/
+
