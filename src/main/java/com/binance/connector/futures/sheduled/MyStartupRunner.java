@@ -21,7 +21,7 @@ public class MyStartupRunner {
 
     @PostConstruct
     public void init() {
-        priceBegin=api.getMarkPrice();
+        priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
         sizePositionBegin=api.getSizePosition();
         openAllOrder();
@@ -40,6 +40,12 @@ public class MyStartupRunner {
     }
     public void setResultInitSuccess(boolean result){
         this.initSuccess =result;
+    }
+
+    private int getBeginPrice(){
+        // priceBegin=api.getMarkPrice();
+        priceBegin = 68000;
+        return priceBegin;
     }
     
 }

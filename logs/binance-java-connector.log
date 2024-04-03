@@ -3390,3 +3390,748 @@ java.lang.Error: Unresolved compilation problems:
  get price market BTCUSDT=66425.10000000
 2024-04-03 22:20:12.386[1712157612386] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
  get price market BTCUSDT=66445.10000000
+2024-04-03 22:20:17.612[1712157617612] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66416.30000000
+2024-04-03 22:20:23.175[1712157623175] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66425.50000000
+2024-04-03 22:20:28.774[1712157628774] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66404.00000000
+2024-04-03 22:20:34.371[1712157634371] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66396.30000000
+2024-04-03 22:20:39.948[1712157639948] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66396.30000000
+2024-04-03 22:20:45.337[1712157645337] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66397.40000000
+2024-04-03 22:20:50.911[1712157650911] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66391.30000000
+2024-04-03 22:20:56.492[1712157656492] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66391.30000000
+2024-04-03 22:21:01.883[1712157661883] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66393.20000000
+2024-04-03 22:21:07.483[1712157667483] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66433.40000000
+2024-04-03 22:21:13.074[1712157673074] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66426.50000000
+2024-04-03 22:21:18.475[1712157678475] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66431.40000000
+2024-04-03 22:21:24.060[1712157684060] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66426.10000000
+2024-04-03 22:21:29.460[1712157689460] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66405.10000000
+2024-04-03 22:21:34.851[1712157694851] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66405.10000000
+2024-04-03 22:21:40.237[1712157700237] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66419.50000000
+2024-04-03 22:21:45.641[1712157705641] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66443.80000000
+2024-04-03 22:21:51.041[1712157711041] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66457.90000000
+2024-04-03 22:21:56.154[1712157716154] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66450.00000000
+2024-04-03 22:22:01.443[1712157721443] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66444.10000000
+2024-04-03 22:22:07.023[1712157727023] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66459.00000000
+2024-04-03 22:22:12.327[1712157732327] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66452.70000000
+2024-04-03 22:22:17.613[1712157737613] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66446.30000000
+2024-04-03 22:22:23.207[1712157743207] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66424.10000000
+2024-04-03 22:22:28.799[1712157748799] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66406.10000000
+2024-04-03 22:22:34.361[1712157754361] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66412.00000000
+2024-04-03 22:22:39.932[1712157759932] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66413.30000000
+2024-04-03 22:22:45.519[1712157765519] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66384.80000000
+2024-04-03 22:22:50.926[1712157770926] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66381.20000000
+2024-04-03 22:22:56.324[1712157776324] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66375.00000000
+2024-04-03 22:23:01.905[1712157781905] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66367.40000000
+2024-04-03 22:23:07.486[1712157787486] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66359.90000000
+2024-04-03 22:23:13.061[1712157793061] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66362.50000000
+2024-04-03 22:23:18.597[1712157798597] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66387.30000000
+2024-04-03 22:23:24.161[1712157804161] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66396.20000000
+2024-04-03 22:23:29.737[1712157809737] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66408.20000000
+2024-04-03 22:23:30.133[1712157810133] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66146
+2024-04-03 22:23:30.460[1712157810460] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751767340,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"06xObEWIzyTL59B9YJQ8W8","price":"66146.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157810419} 
+2024-04-03 22:23:36.023[1712157816023] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66412.20000000
+2024-04-03 22:23:41.404[1712157821404] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66407.10000000
+2024-04-03 22:23:46.997[1712157826997] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66412.20000000
+2024-04-03 22:23:52.583[1712157832583] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66413.20000000
+2024-04-03 22:23:58.176[1712157838176] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66419.90000000
+2024-04-03 22:24:03.572[1712157843572] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66416.00000000
+2024-04-03 22:24:08.980[1712157848980] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66419.90000000
+2024-04-03 22:24:14.577[1712157854577] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66403.80000000
+2024-04-03 22:24:19.961[1712157859961] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66400.00000000
+2024-04-03 22:24:25.195[1712157865195] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66411.90000000
+2024-04-03 22:24:30.791[1712157870791] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66384.50000000
+2024-04-03 22:24:36.365[1712157876365] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66372.40000000
+2024-04-03 22:24:41.778[1712157881778] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66369.80000000
+2024-04-03 22:24:47.349[1712157887349] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66369.80000000
+2024-04-03 22:24:52.737[1712157892737] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66365.10000000
+2024-04-03 22:24:58.333[1712157898333] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66357.70000000
+2024-04-03 22:25:03.728[1712157903728] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66357.90000000
+2024-04-03 22:25:09.129[1712157909129] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66362.20000000
+2024-04-03 22:25:14.714[1712157914714] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66363.80000000
+2024-04-03 22:25:20.123[1712157920123] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66360.50000000
+2024-04-03 22:25:25.714[1712157925714] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66337.90000000
+2024-04-03 22:25:31.301[1712157931301] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66351.60000000
+2024-04-03 22:25:36.860[1712157936860] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66357.50000000
+2024-04-03 22:25:42.455[1712157942455] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66340.70000000
+2024-04-03 22:25:48.035[1712157948035] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66350.40000000
+2024-04-03 22:25:53.616[1712157953616] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66349.50000000
+2024-04-03 22:25:54.676[1712157954676] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:25:54.676[1712157954676] | INFO  | Thread-264 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:25:54.716[1712157954716] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:25:54.716[1712157954716] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:25:54.755[1712157954755] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:25:54.756[1712157954756] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:25:54.756[1712157954756] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:25:54.756[1712157954756] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:25:54.758[1712157954758] | INFO  | restartedMain | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:25:54.758[1712157954758] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 42 ms
+2024-04-03 22:25:55.075[1712157955075] | INFO  | restartedMain | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66348.10000000
+2024-04-03 22:25:55.350[1712157955350] | INFO  | restartedMain | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66348.00000000
+2024-04-03 22:25:56.060[1712157956060] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66048
+2024-04-03 22:25:56.378[1712157956378] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771014,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"bgZ3RQ0WgajRLN7G9XxFuv","price":"66048.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157956353} 
+2024-04-03 22:25:56.670[1712157956670] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65748
+2024-04-03 22:25:56.989[1712157956989] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771046,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"hOmUdRd6YWiXiDPgdxuZbH","price":"65748.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157956963} 
+2024-04-03 22:25:57.363[1712157957363] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65448
+2024-04-03 22:25:57.694[1712157957694] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771059,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"o6bnoZdELseKVVIurx2OJE","price":"65448.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157957660} 
+2024-04-03 22:25:58.087[1712157958087] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65148
+2024-04-03 22:25:58.240[1712157958240] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771068,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"pwsutcqvnKo4PjS3f2HsGx","price":"65148.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157958215} 
+2024-04-03 22:25:58.354[1712157958354] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 64848
+2024-04-03 22:25:58.480[1712157958480] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771071,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"ah5a7hTiGNcRCSvCzoNtw3","price":"64848.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157958465} 
+2024-04-03 22:25:58.517[1712157958517] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:25:58.520[1712157958520] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:25:58.522[1712157958522] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:25:58.525[1712157958525] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 3.816 seconds (process running for 2256.373)
+2024-04-03 22:25:58.525[1712157958525] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:25:58.625[1712157958625] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66349.40000000
+2024-04-03 22:26:02.365[1712157962365] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:26:02.366[1712157962366] | INFO  | Thread-269 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:02.417[1712157962417] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:02.417[1712157962417] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:02.462[1712157962462] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:02.462[1712157962462] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:02.463[1712157962463] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:02.463[1712157962463] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:02.465[1712157962465] | INFO  | restartedMain | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:02.465[1712157962465] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 48 ms
+2024-04-03 22:26:02.469[1712157962469] | WARN  | restartedMain | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myStartupRunner': Invocation of init method failed
+2024-04-03 22:26:02.469[1712157962469] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2024-04-03 22:26:02.471[1712157962471] | INFO  | restartedMain | o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-03 22:26:02.481[1712157962481] | ERROR | restartedMain | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myStartupRunner': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	getBeginPrice cannot be resolved to a variable
+
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	... 23 common frames omitted
+2024-04-03 22:26:03.918[1712157963918] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:03.918[1712157963918] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:03.967[1712157963967] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:03.969[1712157963969] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:03.969[1712157963969] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:03.969[1712157963969] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:03.973[1712157963973] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:03.973[1712157963973] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 54 ms
+2024-04-03 22:26:04.377[1712157964377] | INFO  | restartedMain | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66352.80000000
+2024-04-03 22:26:04.377[1712157964377] | WARN  | restartedMain | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myStartupRunner': Invocation of init method failed
+2024-04-03 22:26:04.377[1712157964377] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2024-04-03 22:26:04.379[1712157964379] | INFO  | restartedMain | o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-03 22:26:04.380[1712157964380] | ERROR | restartedMain | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myStartupRunner': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	This method must return a result of type int
+
+	at com.binance.connector.futures.sheduled.MyStartupRunner.getBeginPrice(MyStartupRunner.java:46)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	... 23 common frames omitted
+2024-04-03 22:26:05.821[1712157965821] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:05.821[1712157965821] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:05.881[1712157965881] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:05.881[1712157965881] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:05.881[1712157965881] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:05.881[1712157965881] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:05.884[1712157965884] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:05.884[1712157965884] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 62 ms
+2024-04-03 22:26:06.016[1712157966016] | INFO  | restartedMain | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66352.90000000
+2024-04-03 22:26:06.016[1712157966016] | WARN  | restartedMain | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myStartupRunner': Invocation of init method failed
+2024-04-03 22:26:06.016[1712157966016] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2024-04-03 22:26:06.018[1712157966018] | INFO  | restartedMain | o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-03 22:26:06.019[1712157966019] | ERROR | restartedMain | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myStartupRunner': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	This method must return a result of type int
+
+	at com.binance.connector.futures.sheduled.MyStartupRunner.getBeginPrice(MyStartupRunner.java:46)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	... 23 common frames omitted
+2024-04-03 22:26:20.591[1712157980591] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:20.591[1712157980591] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:20.645[1712157980645] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:20.645[1712157980645] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:20.645[1712157980645] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:20.645[1712157980645] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:20.647[1712157980647] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:20.647[1712157980647] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 55 ms
+2024-04-03 22:26:20.974[1712157980974] | INFO  | restartedMain | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66330.80000000
+2024-04-03 22:26:21.839[1712157981839] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66030
+2024-04-03 22:26:21.995[1712157981995] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771640,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"w6vzsvAXODGJg3nM03YnYe","price":"66030.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157981965} 
+2024-04-03 22:26:22.286[1712157982286] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65730
+2024-04-03 22:26:22.608[1712157982608] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771653,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"aGn35E5KsRuWhE4wquxjIo","price":"65730.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157982579} 
+2024-04-03 22:26:22.894[1712157982894] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65430
+2024-04-03 22:26:23.232[1712157983232] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771664,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"XtrG7V9woCYqQ1rzzlYx3Y","price":"65430.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157983212} 
+2024-04-03 22:26:23.520[1712157983520] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65130
+2024-04-03 22:26:23.846[1712157983846] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771676,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"LYMZ5AA1YMjeUEXiMDeH4b","price":"65130.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157983817} 
+2024-04-03 22:26:23.953[1712157983953] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 64830
+2024-04-03 22:26:24.090[1712157984090] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771704,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"dimj2NeM3xiLHpJh0HYm0R","price":"64830.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157984056} 
+2024-04-03 22:26:24.123[1712157984123] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:26:24.125[1712157984125] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:24.126[1712157984126] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:26:24.129[1712157984129] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 3.551 seconds (process running for 2281.977)
+2024-04-03 22:26:24.129[1712157984129] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:26:24.235[1712157984235] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66335.30000000
+2024-04-03 22:26:26.555[1712157986555] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:26:26.558[1712157986558] | INFO  | Thread-274 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:26.616[1712157986616] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:26.616[1712157986616] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:26.657[1712157986657] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:26.657[1712157986657] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:26.657[1712157986657] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:26.657[1712157986657] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:26.659[1712157986659] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:26.659[1712157986659] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 42 ms
+2024-04-03 22:26:26.977[1712157986977] | INFO  | restartedMain | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66345.10000000
+2024-04-03 22:26:27.677[1712157987677] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66045
+2024-04-03 22:26:27.816[1712157987816] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771781,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"Zak3fc9zDPOr7XST35K8iT","price":"66045.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157987781} 
+2024-04-03 22:26:27.927[1712157987927] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65745
+2024-04-03 22:26:28.273[1712157988273] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771788,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"jBEyvxNzeXt0W2rI72llpG","price":"65745.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157988232} 
+2024-04-03 22:26:28.579[1712157988579] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65445
+2024-04-03 22:26:28.934[1712157988934] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771799,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"xBDTdGxTjHNWZuFI2relRp","price":"65445.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157988895} 
+2024-04-03 22:26:29.216[1712157989216] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 65145
+2024-04-03 22:26:29.540[1712157989540] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771809,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"Py0wGSw2MyahO8Tmz5jf6r","price":"65145.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157989515} 
+2024-04-03 22:26:29.646[1712157989646] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 64845
+2024-04-03 22:26:29.784[1712157989784] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751771814,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"kmGGIImKEqKvyk9i4oKURy","price":"64845.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712157989747} 
+2024-04-03 22:26:29.818[1712157989818] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:26:29.820[1712157989820] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:29.822[1712157989822] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:26:29.824[1712157989824] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 3.216 seconds (process running for 2287.673)
+2024-04-03 22:26:29.825[1712157989825] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:26:29.926[1712157989926] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66350.50000000
+2024-04-03 22:26:33.258[1712157993258] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:26:33.259[1712157993259] | INFO  | Thread-291 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:33.313[1712157993313] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:33.313[1712157993313] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:33.349[1712157993349] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:33.349[1712157993349] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:33.349[1712157993349] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:33.349[1712157993349] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:33.351[1712157993351] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:33.351[1712157993351] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 37 ms
+2024-04-03 22:26:34.345[1712157994345] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price -300
+2024-04-03 22:26:34.628[1712157994628] | ERROR | restartedMain | c.b.c.f.controller.ApiController     - fullErrMessage: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."} 
+errMessage: Mandatory parameter 'price' was not sent, was empty/null, or malformed. 
+errCode: -1102 
+HTTPStatusCode: 400
+com.binance.connector.futures.client.exceptions.BinanceClientException: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."}
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleErrorResponse(ResponseHandler.java:71)
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleResponse(ResponseHandler.java:35)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendApiRequest(RequestHandler.java:56)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendSignedRequest(RequestHandler.java:80)
+	at com.binance.connector.futures.client.impl.futures.Account.newOrder(Account.java:148)
+	at com.binance.connector.futures.controller.ApiController.newOrders(ApiController.java:47)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.openAllOrder(MyStartupRunner.java:34)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-04-03 22:26:34.936[1712157994936] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price -600
+2024-04-03 22:26:35.065[1712157995065] | ERROR | restartedMain | c.b.c.f.controller.ApiController     - fullErrMessage: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."} 
+errMessage: Mandatory parameter 'price' was not sent, was empty/null, or malformed. 
+errCode: -1102 
+HTTPStatusCode: 400
+com.binance.connector.futures.client.exceptions.BinanceClientException: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."}
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleErrorResponse(ResponseHandler.java:71)
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleResponse(ResponseHandler.java:35)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendApiRequest(RequestHandler.java:56)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendSignedRequest(RequestHandler.java:80)
+	at com.binance.connector.futures.client.impl.futures.Account.newOrder(Account.java:148)
+	at com.binance.connector.futures.controller.ApiController.newOrders(ApiController.java:47)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.openAllOrder(MyStartupRunner.java:34)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-04-03 22:26:35.178[1712157995178] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price -900
+2024-04-03 22:26:35.476[1712157995476] | ERROR | restartedMain | c.b.c.f.controller.ApiController     - fullErrMessage: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."} 
+errMessage: Mandatory parameter 'price' was not sent, was empty/null, or malformed. 
+errCode: -1102 
+HTTPStatusCode: 400
+com.binance.connector.futures.client.exceptions.BinanceClientException: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."}
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleErrorResponse(ResponseHandler.java:71)
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleResponse(ResponseHandler.java:35)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendApiRequest(RequestHandler.java:56)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendSignedRequest(RequestHandler.java:80)
+	at com.binance.connector.futures.client.impl.futures.Account.newOrder(Account.java:148)
+	at com.binance.connector.futures.controller.ApiController.newOrders(ApiController.java:47)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.openAllOrder(MyStartupRunner.java:34)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-04-03 22:26:35.775[1712157995775] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price -1200
+2024-04-03 22:26:35.880[1712157995880] | ERROR | restartedMain | c.b.c.f.controller.ApiController     - fullErrMessage: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."} 
+errMessage: Mandatory parameter 'price' was not sent, was empty/null, or malformed. 
+errCode: -1102 
+HTTPStatusCode: 400
+com.binance.connector.futures.client.exceptions.BinanceClientException: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."}
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleErrorResponse(ResponseHandler.java:71)
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleResponse(ResponseHandler.java:35)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendApiRequest(RequestHandler.java:56)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendSignedRequest(RequestHandler.java:80)
+	at com.binance.connector.futures.client.impl.futures.Account.newOrder(Account.java:148)
+	at com.binance.connector.futures.controller.ApiController.newOrders(ApiController.java:47)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.openAllOrder(MyStartupRunner.java:34)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-04-03 22:26:35.992[1712157995992] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price -1500
+2024-04-03 22:26:36.274[1712157996274] | ERROR | restartedMain | c.b.c.f.controller.ApiController     - fullErrMessage: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."} 
+errMessage: Mandatory parameter 'price' was not sent, was empty/null, or malformed. 
+errCode: -1102 
+HTTPStatusCode: 400
+com.binance.connector.futures.client.exceptions.BinanceClientException: {"code":-1102,"msg":"Mandatory parameter 'price' was not sent, was empty/null, or malformed."}
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleErrorResponse(ResponseHandler.java:71)
+	at com.binance.connector.futures.client.utils.ResponseHandler.handleResponse(ResponseHandler.java:35)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendApiRequest(RequestHandler.java:56)
+	at com.binance.connector.futures.client.utils.RequestHandler.sendSignedRequest(RequestHandler.java:80)
+	at com.binance.connector.futures.client.impl.futures.Account.newOrder(Account.java:148)
+	at com.binance.connector.futures.controller.ApiController.newOrders(ApiController.java:47)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.openAllOrder(MyStartupRunner.java:34)
+	at com.binance.connector.futures.sheduled.MyStartupRunner.init(MyStartupRunner.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.binance.connector.futures.BotAplication.main(BotAplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-04-03 22:26:36.293[1712157996293] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:26:36.294[1712157996294] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:36.295[1712157996295] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:26:36.297[1712157996297] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 2.991 seconds (process running for 2294.145)
+2024-04-03 22:26:36.297[1712157996297] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:26:36.403[1712157996403] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66333.30000000
+2024-04-03 22:26:41.687[1712158001687] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66311.90000000
+2024-04-03 22:26:46.965[1712158006965] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66301.00000000
+2024-04-03 22:26:52.072[1712158012072] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66293.90000000
+2024-04-03 22:26:53.925[1712158013925] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:26:53.926[1712158013926] | INFO  | Thread-296 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:53.975[1712158013975] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:53.975[1712158013975] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:54.012[1712158014012] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:54.013[1712158014013] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:54.013[1712158014013] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:54.013[1712158014013] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:54.015[1712158014015] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:54.015[1712158014015] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 40 ms
+2024-04-03 22:26:55.261[1712158015261] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67700
+2024-04-03 22:26:55.452[1712158015452] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772458,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"Qnpwipk9irYr9OHQ4rnfhb","price":"67700.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158015392} 
+2024-04-03 22:26:55.740[1712158015740] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67400
+2024-04-03 22:26:55.901[1712158015901] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772470,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"uO77RN8WawJowUGil5Tjtf","price":"67400.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158015855} 
+2024-04-03 22:26:56.185[1712158016185] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67100
+2024-04-03 22:26:56.516[1712158016516] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772479,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"P0pTvSDvfl3sDdny9smKSQ","price":"67100.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158016487} 
+2024-04-03 22:26:56.804[1712158016804] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66800
+2024-04-03 22:26:56.959[1712158016959] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772510,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"VdujQgxfzhS04qyOz6ri69","price":"66800.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158016943} 
+2024-04-03 22:26:57.246[1712158017246] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66500
+2024-04-03 22:26:57.394[1712158017394] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772522,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"9X1GLnoz93SEDYTCaaqK5N","price":"66500.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158017367} 
+2024-04-03 22:26:57.419[1712158017419] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:26:57.421[1712158017421] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:57.423[1712158017423] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:26:57.425[1712158017425] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 3.455 seconds (process running for 2315.274)
+2024-04-03 22:26:57.425[1712158017425] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:26:57.526[1712158017526] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66238.71875859
+2024-04-03 22:26:58.839[1712158018839] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:26:58.842[1712158018842] | INFO  | Thread-301 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:58.908[1712158018908] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:26:58.908[1712158018908] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:26:59.019[1712158019019] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:26:59.019[1712158019019] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:26:59.019[1712158019019] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:26:59.019[1712158019019] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:26:59.021[1712158019021] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:26:59.021[1712158019021] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 113 ms
+2024-04-03 22:27:00.028[1712158020028] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67700
+2024-04-03 22:27:00.329[1712158020329] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772595,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"qrJo3oRKumynHIgYEWWLP7","price":"67700.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158020311} 
+2024-04-03 22:27:00.635[1712158020635] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67400
+2024-04-03 22:27:00.948[1712158020948] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772609,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"rhZwWRN2p058PXAAqdjBfJ","price":"67400.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158020928} 
+2024-04-03 22:27:01.244[1712158021244] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67100
+2024-04-03 22:27:01.585[1712158021585] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772626,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"Y8xDaJLVYXs5JZq9XlHMoN","price":"67100.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158021559} 
+2024-04-03 22:27:01.896[1712158021896] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66800
+2024-04-03 22:27:02.052[1712158022052] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772644,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"zyLTy5USky5ZD1SYBJg2dB","price":"66800.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158022019} 
+2024-04-03 22:27:02.347[1712158022347] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66500
+2024-04-03 22:27:02.671[1712158022671] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772673,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"WAYa0omByZ1I6f32mf1Yju","price":"66500.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158022652} 
+2024-04-03 22:27:02.702[1712158022702] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:27:02.704[1712158022704] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:02.706[1712158022706] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:27:02.708[1712158022708] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 3.807 seconds (process running for 2320.558)
+2024-04-03 22:27:02.709[1712158022709] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:27:02.817[1712158022817] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66234.40000000
+2024-04-03 22:27:08.035[1712158028035] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66265.90000000
+2024-04-03 22:27:11.212[1712158031212] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:27:11.213[1712158031213] | INFO  | Thread-306 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:11.284[1712158031284] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:27:11.284[1712158031284] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:27:11.321[1712158031321] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:27:11.322[1712158031322] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:11.322[1712158031322] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:27:11.322[1712158031322] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:27:11.324[1712158031324] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:27:11.324[1712158031324] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 39 ms
+2024-04-03 22:27:12.647[1712158032647] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67700
+2024-04-03 22:27:13.010[1712158033010] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772928,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"ttGxeAbvd0echnNvwsY4iV","price":"67700.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158032995} 
+2024-04-03 22:27:13.334[1712158033334] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67400
+2024-04-03 22:27:13.531[1712158033531] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772938,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"AxcHkUI5dTaeHvSEOSmyor","price":"67400.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158033487} 
+2024-04-03 22:27:13.847[1712158033847] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67100
+2024-04-03 22:27:14.271[1712158034271] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772957,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"YTlDt9mCdMSIM3x6ILJcc5","price":"67100.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158034159} 
+2024-04-03 22:27:14.575[1712158034575] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66800
+2024-04-03 22:27:14.736[1712158034736] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751772994,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"2tVMmopOZberUYbxAAL3Ds","price":"66800.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158034717} 
+2024-04-03 22:27:14.950[1712158034950] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66500
+2024-04-03 22:27:15.296[1712158035296] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751773008,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"DEh5gsPRNGahXyk1FOyQ1F","price":"66500.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158035260} 
+2024-04-03 22:27:15.321[1712158035321] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:27:15.324[1712158035324] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:15.326[1712158035326] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:27:15.328[1712158035328] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 4.051 seconds (process running for 2333.177)
+2024-04-03 22:27:15.328[1712158035328] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:27:15.448[1712158035448] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66285.50000000
+2024-04-03 22:27:20.873[1712158040873] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66260.00000000
+2024-04-03 22:27:25.240[1712158045240] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-03 22:27:25.240[1712158045240] | INFO  | Thread-311 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:25.298[1712158045298] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Starting BotAplication using Java 17.0.10 with PID 6487 (/Users/dong1108/code/binance-futures-connector-java-main/target/classes started by dong1108 in /Users/dong1108/code/binance-futures-connector-java-main)
+2024-04-03 22:27:25.298[1712158045298] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - No active profile set, falling back to 1 default profile: "default"
+2024-04-03 22:27:25.336[1712158045336] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port 8080 (http)
+2024-04-03 22:27:25.336[1712158045336] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:25.336[1712158045336] | INFO  | restartedMain | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2024-04-03 22:27:25.336[1712158045336] | INFO  | restartedMain | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-03 22:27:25.339[1712158045339] | INFO  | restartedMain | o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-03 22:27:25.339[1712158045339] | INFO  | restartedMain | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 40 ms
+2024-04-03 22:27:26.236[1712158046236] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67700
+2024-04-03 22:27:26.563[1712158046563] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751773267,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"gzBraFMBx6DNZxI43dWO9Y","price":"67700.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158046543} 
+2024-04-03 22:27:26.856[1712158046856] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67400
+2024-04-03 22:27:27.177[1712158047177] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751773287,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"VrWjJslv02V8aSNHJG3wKs","price":"67400.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158047155} 
+2024-04-03 22:27:27.286[1712158047286] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 67100
+2024-04-03 22:27:27.445[1712158047445] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751773292,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"hDdwFFhEXR5fk0du8yWWbZ","price":"67100.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158047407} 
+2024-04-03 22:27:27.737[1712158047737] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66800
+2024-04-03 22:27:28.057[1712158048057] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751773302,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"VIML07XxeB6H5ZPY4M4fI3","price":"66800.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158048039} 
+2024-04-03 22:27:28.165[1712158048165] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  BEGIN : Create New Order BUY price 66500
+2024-04-03 22:27:28.291[1712158048291] | INFO  | restartedMain | c.b.c.f.controller.ApiController     -  RETURN : create Order BUY  {"orderId":3751773310,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"f32Rit97bM4zlz6H8eWPig","price":"66500.00","avgPrice":"0.00","origQty":"0.010","executedQty":"0.000","cumQty":"0.000","cumQuote":"0.00000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1712158048276} 
+2024-04-03 22:27:28.308[1712158048308] | INFO  | restartedMain | o.s.b.d.a.OptionalLiveReloadServer   - LiveReload server is running on port 35729
+2024-04-03 22:27:28.310[1712158048310] | INFO  | restartedMain | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-03 22:27:28.311[1712158048311] | INFO  | restartedMain | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port 8080 (http) with context path ''
+2024-04-03 22:27:28.313[1712158048313] | INFO  | restartedMain | c.b.connector.futures.BotAplication  - Started BotAplication in 3.021 seconds (process running for 2346.163)
+2024-04-03 22:27:28.313[1712158048313] | INFO  | restartedMain | o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-03 22:27:28.416[1712158048416] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66256.00000000
+2024-04-03 22:27:33.815[1712158053815] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66259.90000000
+2024-04-03 22:27:39.197[1712158059197] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66278.10000000
+2024-04-03 22:27:44.773[1712158064773] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66293.40000000
+2024-04-03 22:27:50.372[1712158070372] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66292.50000000
+2024-04-03 22:27:55.954[1712158075954] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66293.90000000
+2024-04-03 22:28:01.351[1712158081351] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66297.00000000
+2024-04-03 22:28:06.564[1712158086564] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66294.00000000
+2024-04-03 22:28:11.973[1712158091973] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66294.90000000
