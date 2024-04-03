@@ -28,17 +28,22 @@ public class SheduledTask {
 
     LinkedHashMap<String, Object> parameters ; 
 
+    boolean paramFlagRunOneTime = true ;
     
     @Scheduled(fixedDelay = 7000)
     private void jobOpenBuy() {
         if(myStartupRunner.getResultInitSuccess()){
             openBUY();
+            if(paramFlagRunOneTime){
+                myStartupRunner.setResultCreateBuySuccess(true);
+                paramFlagRunOneTime=false;
+            }
         }
     }
     
     @Scheduled(fixedDelay = 5000)
     private void jobOpenSell(){
-        if(myStartupRunner.getResultInitSuccess()){
+        if(myStartupRunner.getResultRunJobSell()){
            openSELL();
         }
     }

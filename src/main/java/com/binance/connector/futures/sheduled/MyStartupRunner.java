@@ -14,6 +14,7 @@ import jakarta.annotation.PostConstruct;
 public class MyStartupRunner {
 
     private boolean initSuccess = false;
+    private boolean createBUYsuccess = false;
     public static int priceBegin;
     public static double sizePositionBegin;
     @Autowired
@@ -40,6 +41,17 @@ public class MyStartupRunner {
     }
     public void setResultInitSuccess(boolean result){
         this.initSuccess =result;
+    }
+
+    public boolean getResultCreateBuySuccess(){
+        return this.createBUYsuccess;
+    }
+    public void setResultCreateBuySuccess(boolean result){
+        this.createBUYsuccess =result;
+    }
+
+    public boolean getResultRunJobSell(){
+        return (this.initSuccess && this.createBUYsuccess);
     }
 
     private int getBeginPrice(){
