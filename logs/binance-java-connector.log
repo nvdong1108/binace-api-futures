@@ -4135,3 +4135,97 @@ com.binance.connector.futures.client.exceptions.BinanceClientException: {"code":
  get price market BTCUSDT=66294.00000000
 2024-04-03 22:28:11.973[1712158091973] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
  get price market BTCUSDT=66294.90000000
+2024-04-03 22:28:17.377[1712158097377] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66297.10000000
+2024-04-03 22:28:22.967[1712158102967] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66294.10000000
+2024-04-03 22:28:28.529[1712158108529] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66300.80000000
+2024-04-03 22:28:33.917[1712158113917] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66310.80000000
+2024-04-03 22:28:39.298[1712158119298] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66300.90000000
+2024-04-03 22:28:44.887[1712158124887] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66300.80000000
+2024-04-03 22:28:50.470[1712158130470] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66291.90000000
+2024-04-03 22:28:55.862[1712158135862] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66282.40000000
+2024-04-03 22:29:01.476[1712158141476] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66284.00000000
+2024-04-03 22:29:06.879[1712158146879] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66287.30000000
+2024-04-03 22:29:12.475[1712158152475] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66307.20000000
+2024-04-03 22:29:17.871[1712158157871] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66292.00000000
+2024-04-03 22:29:23.359[1712158163359] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66310.80000000
+2024-04-03 22:29:28.763[1712158168763] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66300.10000000
+2024-04-03 22:29:34.163[1712158174163] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66314.70000000
+2024-04-03 22:29:39.745[1712158179745] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66313.70000000
+2024-04-03 22:29:45.328[1712158185328] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66307.00000000
+2024-04-03 22:29:50.894[1712158190894] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66313.60000000
+2024-04-03 22:29:56.470[1712158196470] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66311.30000000
+2024-04-03 22:30:01.675[1712158201675] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66318.10000000
+2024-04-03 22:30:07.270[1712158207270] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66318.20000000
+2024-04-03 22:30:12.851[1712158212851] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66300.10000000
+2024-04-03 22:30:18.435[1712158218435] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66317.40000000
+2024-04-03 22:30:24.016[1712158224016] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66305.10000000
+2024-04-03 22:30:29.411[1712158229411] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66284.60000000
+2024-04-03 22:30:34.988[1712158234988] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66282.30000000
+2024-04-03 22:30:40.394[1712158240394] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66282.40000000
+2024-04-03 22:30:45.946[1712158245946] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66275.00000000
+2024-04-03 22:30:51.341[1712158251341] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66236.20000000
+2024-04-03 22:30:56.748[1712158256748] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66241.80000000
+2024-04-03 22:31:02.333[1712158262333] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66235.00000000
+2024-04-03 22:31:07.726[1712158267726] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66121.01066134
+2024-04-03 22:31:13.309[1712158273309] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66081.24155929
+2024-04-03 22:31:18.704[1712158278704] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66095.46821643
+2024-04-03 22:31:24.282[1712158284282] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66083.25410037
+2024-04-03 22:31:29.729[1712158289729] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66054.68439048
+2024-04-03 22:31:35.141[1712158295141] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66032.15152759
+2024-04-03 22:31:40.536[1712158300536] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65977.89023953
+2024-04-03 22:31:46.095[1712158306095] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=66010.50547560
+2024-04-03 22:31:51.673[1712158311673] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65991.70000000
+2024-04-03 22:31:57.323[1712158317323] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65985.60000000
+2024-04-03 22:32:02.701[1712158322701] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65980.60000000
+2024-04-03 22:32:08.080[1712158328080] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65983.40000000
+2024-04-03 22:32:13.676[1712158333676] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65986.61695005
+2024-04-03 22:32:19.179[1712158339179] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65962.90000000
+2024-04-03 22:32:24.763[1712158344763] | INFO  | scheduling-1 | c.b.c.f.controller.ApiController     - 
+ get price market BTCUSDT=65986.30000000
+2024-04-03 22:32:28.250[1712158348250] | INFO  | File Watcher | o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 48 class path changes (0 additions, 48 deletions, 0 modifications)
+2024-04-03 22:32:28.252[1712158348252] | INFO  | Thread-316 | o.a.coyote.http11.Http11NioProtocol  - Stopping ProtocolHandler ["http-nio-8080"]
