@@ -1,7 +1,7 @@
 package com.binance.connector.futures.config;
 
 public class Constant {
-    public final static int SPACE_PRICE_INT =300;
+    public final static int SPACE_PRICE_INT =500;
     public final static int QUANTIYY_OPEN_ORDES = 5;
     public final static int MAX_OPEN_ORDES = 5;
     public final static double QUANTITY_ONE_EXCHANGE  = 0.01;

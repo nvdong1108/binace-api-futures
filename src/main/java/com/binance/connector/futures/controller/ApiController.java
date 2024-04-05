@@ -1,18 +1,13 @@
 package com.binance.connector.futures.controller;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import com.binance.connector.futures.client.exceptions.BinanceClientException;
 import com.binance.connector.futures.client.exceptions.BinanceConnectorException;
@@ -68,6 +63,12 @@ public class ApiController {
         int resultCompare =Common.comparePrice(intPriceTrade, price);
         if(resultCompare!=0){
                return true;
+        }
+        if(Constant.SIDE_BUY.equals(side)){
+            JSONArray jsonArrayBuy=getCurrentAllOpenOrders(side);
+            if(jsonArrayBuy==null || jsonArrayBuy.isEmpty()){
+                return true;
+            }
         }
         return false;
     }
@@ -135,13 +136,7 @@ public class ApiController {
     public void cancelAllOpenOrders(){
         LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
         parameters.put("symbol", Constant.SYMBOL);
-        String result = client.account().cancelAllOpenOrders(parameters);
+        client.account().cancelAllOpenOrders(parameters);
 
     }
-
-
-    
-
-
-
 }

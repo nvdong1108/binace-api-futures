@@ -51,17 +51,20 @@ public class SheduledTask {
     private void openBUY(){
         int markPrice = apiController.getMarkPrice();
         int priceBegin = MyStartupRunner.priceBegin;
-        if(priceBegin<markPrice){
-            //todo
-            return;
-        }
+       
         JSONArray jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_BUY);
         if( jsonArray!=null){
             if(jsonArray.length()>=Constant.QUANTIYY_OPEN_ORDES){
                 return;
             }
         }
-        int priceOpenOrders = ((priceBegin-markPrice)%Constant.SPACE_PRICE_INT) + markPrice;
+        int priceOpenOrders=0;
+        
+        if(priceBegin<markPrice){
+            priceOpenOrders  = priceBegin;
+        }else {
+            priceOpenOrders = ((priceBegin-markPrice)%Constant.SPACE_PRICE_INT) + markPrice;
+        }
         for(int i = 0 ; i < Constant.MAX_OPEN_ORDES ; i ++){
             priceOpenOrders=priceOpenOrders-Constant.SPACE_PRICE_INT;
             boolean result = false;

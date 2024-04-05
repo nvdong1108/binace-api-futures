@@ -56,7 +56,7 @@ public class MyStartupRunner {
 
     private int getBeginPrice(){
         // priceBegin=api.getMarkPrice();
-        priceBegin = 68000;
+        priceBegin = 69000;
         return priceBegin;
     }
     
