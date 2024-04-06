@@ -29,7 +29,7 @@ public class ApiController {
             }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
-            logger.info(" BEGIN : Create New Order {} price {}",side,price);
+            logger.info("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
             
             parameters = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
@@ -39,12 +39,13 @@ public class ApiController {
             parameters.put("quantity", decimalFormat.format(quantity));
             parameters.put("price", price);
        
-            String result = client.account().newOrder(parameters);
-            logger.info(" RETURN : create Order {}  {} ",side,result);
+            client.account().newOrder(parameters);
+            logger.info("\n\n"+
+                        "------>   RETURN : creat {}  price={} success  <------\n",side,price);
         } catch (BinanceConnectorException e) {
-            logger.error("fullErrMessage: {}", e.getMessage(), e);
+            logger.error("newOrders Error fullErrMessage: {}", e.getMessage(), e);
         } catch (BinanceClientException e) {
-            logger.error("fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
+            logger.error("newOrders Error  fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
                     e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
         }
     }
@@ -99,7 +100,6 @@ public class ApiController {
         String result = client.market().tickerSymbol(parameters); 
         JSONObject jsonObject = new JSONObject(result);
         String markPrice = jsonObject.getString("price");
-        logger.info("\n get price market BTCUSDT={}",markPrice,"\n");
         return  (int)Double.parseDouble(markPrice);
     }
 
@@ -137,6 +137,5 @@ public class ApiController {
         LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
         parameters.put("symbol", Constant.SYMBOL);
         client.account().cancelAllOpenOrders(parameters);
-
     }
 }

@@ -12,4 +12,7 @@ public class Constant {
     public final static String SIDE_SELL = "SELL";
     public final static int  PRICE_LIMIT_DIFF = 10;
 
+
+    public final static int NOT_FOUND = -1;
+
 }

@@ -215,6 +215,13 @@
             <version>1.4.14</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>8.1.0</version>
+        </dependency>
+
         
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>

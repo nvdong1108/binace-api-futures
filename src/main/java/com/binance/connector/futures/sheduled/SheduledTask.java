@@ -12,7 +12,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
-import java.util.Random;
 
 @Component
 public class SheduledTask {
@@ -122,6 +121,8 @@ public class SheduledTask {
             countOpenSellRemaining--;
         }
     }
+
+    
 
    
    

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
+import com.binance.connector.futures.controller.ApiFirebase;
 
 import jakarta.annotation.PostConstruct;
 
@@ -17,14 +18,22 @@ public class MyStartupRunner {
     private boolean createBUYsuccess = false;
     public static int priceBegin;
     public static double sizePositionBegin;
+    private final static Logger log = LoggerFactory.getLogger(MyStartupRunner.class);
+    
+
     @Autowired
     ApiController api;
+
+    @Autowired
+    ApiFirebase firebase ; 
 
     @PostConstruct
     public void init() {
         priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
         sizePositionBegin=api.getSizePosition();
+        log.info("\n\n"+
+                 "------>   START BOT WITH : Price begin = {} , Positions Size = {}   <-----\n",priceBegin,sizePositionBegin);
         openAllOrder();
     }
 
@@ -55,8 +64,12 @@ public class MyStartupRunner {
     }
 
     private int getBeginPrice(){
-        // priceBegin=api.getMarkPrice();
-        priceBegin = 69000;
+        String fieldName = "begin-price";
+        priceBegin = firebase.get(fieldName);
+        if(priceBegin== Constant.NOT_FOUND){
+            priceBegin=api.getMarkPrice();
+            firebase.add(fieldName, priceBegin);
+        }
         return priceBegin;
     }
     
