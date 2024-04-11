@@ -1,4 +1,40 @@
 
+
+Solution 2024/04/09
+
+Tạo cố định lệnh buy đến -> mua thấp nhất. 
+ví dụ 10 lệnh mua.
+open buy -> 
+	id mua lên fire base , status buy . id sell , status sell ,
+
+job ->
+ giao dịch thành công gần nhất -> 5 giao dịch . 
+ lấy giữ liệu fire base toàn bộ
+for (){
+obj data fire base ; 
+	if side BUY {
+	if ( firebase status BUY == success ){
+			continute; 
+		}else if (firabse status == new ){
+			step 1. create sell open . 
+			step 2. update object firebase => success.
+		}
+	}else side SELL {
+		if (firebase status = new  ) {
+			step 1. create lại buy open với mức giá mua cũ. 
+			step 2. update obj firebase sell = success.
+			step 3. delete obj , new dữ liệu log.
+		}
+	}
+}
+
+
+
+
+
+
+
+Solution 1
 -> 70,000   buy 0.1 BTC . 
 69,500  : buy 0.01 
 69,000  : buy 0.01. 

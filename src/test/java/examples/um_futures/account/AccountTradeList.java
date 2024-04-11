@@ -3,7 +3,11 @@ package examples.um_futures.account;
 import com.binance.connector.futures.client.exceptions.BinanceClientException;
 import com.binance.connector.futures.client.exceptions.BinanceConnectorException;
 import com.binance.connector.futures.client.impl.UMFuturesClientImpl;
+
+
 import examples.PrivateConfig;
+
+import java.util.Date;
 import java.util.LinkedHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +21,12 @@ public final class AccountTradeList {
         LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
 
         UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
-
+        Date date = new Date();
+        long startTime = 1712849842169l;
         parameters.put("symbol", "BTCUSDT");
-        parameters.put("limit", "1");
+        parameters.put("startTime",startTime );
+        parameters.put("endTime", date.getTime());
+        parameters.put("limit", "10");
         try {
             String result = client.account().accountTradeList(parameters);
             logger.info(result);

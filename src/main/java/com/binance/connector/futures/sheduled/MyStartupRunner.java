@@ -1,5 +1,7 @@
 package com.binance.connector.futures.sheduled;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +31,10 @@ public class MyStartupRunner {
 
     @PostConstruct
     public void init() {
+        firebase.add("startTime",new Date().getTime() );
         priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
+        firebase.deleAll();
         sizePositionBegin=api.getSizePosition();
         log.info("\n\n"+
                  "------>   START BOT WITH : Price begin = {} , Positions Size = {}   <-----\n",priceBegin,sizePositionBegin);
@@ -41,7 +45,8 @@ public class MyStartupRunner {
         int priceOpenOrder = priceBegin;
         for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
             priceOpenOrder = priceOpenOrder - Constant.SPACE_PRICE_INT;
-            api.newOrders(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, "BUY");
+            String result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, "BUY");
+            firebase.addOrderId(result);
         }
         setResultInitSuccess(true);
     }
@@ -65,9 +70,9 @@ public class MyStartupRunner {
 
     private int getBeginPrice(){
         String fieldName = "begin-price";
-        priceBegin = firebase.get(fieldName);
+        priceBegin =Integer.parseInt(firebase.get(fieldName)+"");
         if(priceBegin== Constant.NOT_FOUND){
-            priceBegin=api.getMarkPrice();
+            priceBegin=(api.getMarkPrice()/100)*100;
             firebase.add(fieldName, priceBegin);
         }
         return priceBegin;

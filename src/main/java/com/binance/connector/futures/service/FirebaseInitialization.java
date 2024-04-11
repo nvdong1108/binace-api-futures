@@ -25,7 +25,6 @@ public class FirebaseInitialization {
             FirebaseOptions options = new FirebaseOptions.Builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
             .build();
-       
             FirebaseApp.initializeApp(options);
         } catch (Exception e) {
             logger.error(e.getMessage());

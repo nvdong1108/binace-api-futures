@@ -29,7 +29,7 @@ public class SheduledTask {
 
     boolean paramFlagRunOneTime = true ;
     
-    @Scheduled(fixedDelay = 7000)
+   // @Scheduled(fixedDelay = 7000)
     private void jobOpenBuy() {
         if(myStartupRunner.getResultInitSuccess()){
             openBUY();
@@ -40,7 +40,7 @@ public class SheduledTask {
         }
     }
     
-    @Scheduled(fixedDelay = 5000)
+   // @Scheduled(fixedDelay = 5000)
     private void jobOpenSell(){
         if(myStartupRunner.getResultRunJobSell()){
            openSELL();

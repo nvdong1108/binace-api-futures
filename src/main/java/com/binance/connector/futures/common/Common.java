@@ -27,4 +27,34 @@ public class Common {
     }
     return false ;
    }
+
+   public static String convertObectToString(Object obj){
+    if(obj==null){
+        return null;
+    }
+    return obj+"";
+    }
+    public static long convertObectToLong(Object obj){
+        if(obj==null){
+            return 0;
+        }
+        if(obj instanceof String || obj instanceof Integer){
+            return Long.parseLong(obj+"");
+        }
+        return (long)obj;
+    }
+    public static int convertObectToInt(Object obj){
+        if(obj==null){
+            return 0;
+        }
+        if(obj instanceof String ){
+            Double _double= Double.parseDouble(obj+"");
+            return _double.intValue();
+        }
+        if(obj instanceof Long){
+            Long _value = (Long)obj;
+            return _value.intValue();
+        }
+        return (int)obj;
+    }
 }

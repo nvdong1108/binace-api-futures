@@ -1,12 +1,14 @@
 package com.binance.connector.futures.controller;
 
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.client.exceptions.BinanceClientException;
@@ -22,10 +24,13 @@ public class ApiController {
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
     UMFuturesClientImpl client  = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL); 
 
-    public void newOrders(int price, double quantity, String side){
+    @Autowired
+    ApiFirebase firebase ; 
+    
+    public String newOrders(int price, double quantity, String side){
         try {
             if(!validOpensOrders(price,side)){
-                return;
+                return null;
             }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
@@ -39,7 +44,31 @@ public class ApiController {
             parameters.put("quantity", decimalFormat.format(quantity));
             parameters.put("price", price);
        
-            client.account().newOrder(parameters);
+           String result =client.account().newOrder(parameters);
+            logger.info("\n\n"+
+                        "------>   RETURN : creat {}  price={} success  <------\n",side,price);
+                        return result;
+        } catch (Exception e) {
+            logger.error("newOrders Error fullErrMessage: {}", e.getMessage(), e);
+            return null;
+        }
+    }
+    public String newOrdersFirstTime(int price, double quantity, String side){
+        String result = null;
+        try {
+            DecimalFormat decimalFormat = new DecimalFormat("#.###");
+            LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
+            logger.info("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
+            
+            parameters = new LinkedHashMap<>();
+            parameters.put("symbol", "BTCUSDT");
+            parameters.put("side", side);
+            parameters.put("type", "LIMIT");
+            parameters.put("timeInForce", "GTC");
+            parameters.put("quantity", decimalFormat.format(quantity));
+            parameters.put("price", price);
+       
+            result=client.account().newOrder(parameters);
             logger.info("\n\n"+
                         "------>   RETURN : creat {}  price={} success  <------\n",side,price);
         } catch (BinanceConnectorException e) {
@@ -48,8 +77,8 @@ public class ApiController {
             logger.error("newOrders Error  fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
                     e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
         }
+        return result;
     }
-
     private boolean validOpensOrders(int price, String side){
         JSONObject jsonObject = getOneTradeList();
         if(jsonObject==null){
@@ -73,6 +102,27 @@ public class ApiController {
         }
         return false;
     }
+    public JSONArray getTradeHistory(){
+        try {
+            long startTime = firebase.get("startTime");
+            long endTime = new Date().getTime();
+            LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
+            parameters.put("symbol", "BTCUSDT");
+            parameters.put("startTime", startTime);
+            parameters.put("endTime", endTime);
+            parameters.put("limit", "10");
+
+            String result = client.account().accountTradeList(parameters);
+            if(result==null || result.isBlank()){
+                return null;
+            }
+            return  new JSONArray(result);
+        }catch(Exception e){
+            logger.error(e.getMessage());
+            return null;
+        }
+    }
+
 
     public JSONObject getOneTradeList(){
         try {
@@ -134,6 +184,7 @@ public class ApiController {
         return result;
     }
     public void cancelAllOpenOrders(){
+       
         LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();
         parameters.put("symbol", Constant.SYMBOL);
         client.account().cancelAllOpenOrders(parameters);

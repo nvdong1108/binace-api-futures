@@ -18,7 +18,9 @@ public final class AccountTradeList {
 
         CMFuturesClientImpl client = new CMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
 
-        parameters.put("pair", "BNBUSD");
+        parameters.put("symbol", "BTCUSDT");
+        // parameters.put("startTime", startTime);
+       // parameters.put("limit", "5");
 
         try {
             String result = client.account().accountTradeList(parameters);
