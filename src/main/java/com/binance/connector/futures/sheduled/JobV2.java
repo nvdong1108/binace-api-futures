@@ -54,8 +54,8 @@ public class JobV2 {
                 if(statusBuy.equals("NEW")){
                     // create order SELLNEW
                     int priceBuy = Common.convertObectToInt(map.get("price-buy"));
-                   int priceOpenSell = priceBuy+Constant.SPACE_PRICE_INT;
-                   String result= apiController.newOrders(priceOpenSell, 0.01, "SELL");
+                    int priceOpenSell = priceBuy+Constant.SPACE_PRICE_INT;
+                     String result= apiController.newOrders(priceOpenSell, 0.01, "SELL");
                    JSONObject orderSell = new JSONObject(result);
 
                    String idSell = Common.convertObectToString(orderSell.get("orderId"));
@@ -66,15 +66,22 @@ public class JobV2 {
                     map.put("id-sell", idSell);
                     map.put("price-sell-open", priceSell);
                     firebase.addOrder(idSell, map);
-
                     firebase.delete(orderId);
                 }
             }else if(side.equals("SELL")){
                 String statusSell = (String)map.get("status-sell");
-                long priceSell = Common.convertObectToLong(map.get("price"));
                 if("NEW".equals(statusSell)){
+                    // step 1 . new buy 
+                    int priceBuyOld =Common.convertObectToInt(map.get("price=buy"));
+                    String result = apiController.newOrders(priceBuyOld, 0.01  , "BUY");
+                    firebase.addOrderId(result);
+                    // step 2 . update firebase. 
+                    JSONObject jsonOb = new JSONObject(result);
+                    String idBuyNew =Common.convertObectToString(jsonOb.get("orderId"));
+                    long priceSellSuccess = Common.convertObectToLong(map.get("price"));
+                    map.put("id-buy-next", idBuyNew);
                     map.put("status-sell", "DONE");
-                    map.put("price-sell-success", priceSell);
+                    map.put("price-sell-success", priceSellSuccess);
                     firebase.updateDocumentField(orderId, map);
                     //firebase.delete(orderId);
                     firebase.addOrderLog(orderId, map);

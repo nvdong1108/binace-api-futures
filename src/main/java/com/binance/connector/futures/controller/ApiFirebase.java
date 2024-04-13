@@ -77,11 +77,12 @@ public class ApiFirebase {
             JSONObject  jsonObject = new JSONObject(result);
             String orderId=Common.convertObectToString(jsonObject.get("orderId"));
             int price= Common.convertObectToInt(jsonObject.getString("price")) ;
+            String side = jsonObject.getString("side").toLowerCase();
 
             Map<String,Object> dataFild = new HashMap<>();
-            dataFild.put("id-buy",orderId);
-            dataFild.put("status-buy","NEW");
-            dataFild.put("price-buy",price);
+            dataFild.put("id-"+side,orderId);
+            dataFild.put("status-"+side,"NEW");
+            dataFild.put("price-"+side,price);
             field.put(orderId,dataFild);
             ApiFuture<WriteResult> future =  dbFirestore.collection("positions")
             .document(orderId).set(dataFild);
