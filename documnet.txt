@@ -20,7 +20,7 @@ obj data fire base ;
 			step 2. update object firebase => success.
 		}
 	}else side SELL {
-		if (firebase status = new  ) {
+		if (firebase status SELL = new  ) {
 			step 1. create lại buy open với mức giá mua cũ. 
 			step 2. update obj firebase sell = success.
 			step 3. delete obj , new dữ liệu log.

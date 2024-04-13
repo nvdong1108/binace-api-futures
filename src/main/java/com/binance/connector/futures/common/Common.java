@@ -36,7 +36,7 @@ public class Common {
     }
     public static long convertObectToLong(Object obj){
         if(obj==null){
-            return 0;
+            return -1;
         }
         if(obj instanceof String || obj instanceof Integer){
             return Long.parseLong(obj+"");

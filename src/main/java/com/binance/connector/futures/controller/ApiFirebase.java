@@ -35,8 +35,8 @@ public class ApiFirebase {
             }
             Object beginPricesData = document.getData();
             Map<String,Object> map = convertObjectToHashMap(beginPricesData);
-            long price =Common.convertObectToLong(map.get(fieldName));
-            return price;
+            long value =Common.convertObectToLong(map.get(fieldName));
+            return value;
         }catch(Exception ex){
             ex.printStackTrace();
             return Constant.NOT_FOUND;
@@ -79,8 +79,22 @@ public class ApiFirebase {
             int price= Common.convertObectToInt(jsonObject.getString("price")) ;
 
             Map<String,Object> dataFild = new HashMap<>();
+            dataFild.put("id-buy",orderId);
             dataFild.put("status-buy","NEW");
             dataFild.put("price-buy",price);
+            field.put(orderId,dataFild);
+            ApiFuture<WriteResult> future =  dbFirestore.collection("positions")
+            .document(orderId).set(dataFild);
+            future.isDone();
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+    public  boolean addOrder(String orderId, Map<String, Object> dataFild) {
+        try{
+            Firestore dbFirestore = FirestoreClient.getFirestore();
+            Map<String,Object> field = new HashMap<>(); 
             field.put(orderId,dataFild);
             ApiFuture<WriteResult> future =  dbFirestore.collection("positions")
             .document(orderId).set(dataFild);
@@ -96,6 +110,15 @@ public class ApiFirebase {
         field.put(fieldName,value);
         ApiFuture<WriteResult> future =  dbFirestore.collection("constant")
         .document(fieldName).set(field);
+        future.isDone();
+    }
+    
+    public void addOrderLog(String orderId,Object value){
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+        Map<String,Object> field = new HashMap<>(); 
+        field.put(orderId,value);
+        ApiFuture<WriteResult> future =  dbFirestore.collection("LogSuccessOrder")
+        .document(orderId).set(field);
         future.isDone();
     }
 
@@ -125,7 +148,7 @@ public class ApiFirebase {
     }
 
 
-    public static boolean updateDocumentField(String orderId, Map<String, Object> updates) {
+    public  boolean updateDocumentField(String orderId, Map<String, Object> updates) {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         DocumentReference documentReference = dbFirestore.collection("positions").document(orderId);
         try {

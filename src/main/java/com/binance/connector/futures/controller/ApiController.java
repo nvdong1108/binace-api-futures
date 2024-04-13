@@ -104,12 +104,13 @@ public class ApiController {
     }
     public JSONArray getTradeHistory(){
         try {
-            long startTime = firebase.get("startTime");
+            long fromId = firebase.get("fromId");
             long endTime = new Date().getTime();
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
-            parameters.put("startTime", startTime);
-            parameters.put("endTime", endTime);
+            //parameters.put("startTime", startTime);
+            // parameters.put("endTime", endTime);
+            //parameters.put("fromId", fromId);
             parameters.put("limit", "10");
 
             String result = client.account().accountTradeList(parameters);

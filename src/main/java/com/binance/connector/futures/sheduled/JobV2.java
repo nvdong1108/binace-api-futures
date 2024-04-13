@@ -3,6 +3,7 @@ package com.binance.connector.futures.sheduled;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.common.Common;
+import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
 import com.binance.connector.futures.controller.ApiFirebase;
 
@@ -37,7 +38,7 @@ public class JobV2 {
 
     private  synchronized void loadOrder(){
         JSONArray jsonArray = apiController.getTradeHistory();
-        if(jsonArray == null){
+        if(jsonArray == null || jsonArray.isEmpty()){
             return;
         }
         for(int i =0; i< jsonArray.length() ; i++){
@@ -50,22 +51,34 @@ public class JobV2 {
             }
             if(side.equals("BUY")){
                 String statusBuy = (String)map.get("status-buy");
-                int priceBuy = Common.convertObectToInt(map.get("price-buy"));
                 if(statusBuy.equals("NEW")){
-                    // create order SELL
-                   String result= apiController.newOrders(priceBuy, 0.01, "SELL");
+                    // create order SELLNEW
+                    int priceBuy = Common.convertObectToInt(map.get("price-buy"));
+                   int priceOpenSell = priceBuy+Constant.SPACE_PRICE_INT;
+                   String result= apiController.newOrders(priceOpenSell, 0.01, "SELL");
                    JSONObject orderSell = new JSONObject(result);
+
                    String idSell = Common.convertObectToString(orderSell.get("orderId"));
                    int priceSell = Common.convertObectToInt(orderSell.get("price"));
-                    Map<String,Object> document = new HashMap<>();
-                    document.put("status-buy", "DONE");
-                    document.put("status-sell", "NEW");
-                    document.put("id-sell", idSell);
-                    document.put("price-sell-open", priceSell);
-                    firebase.updateDocumentField(orderId,document);
+                    
+                    map.put("status-buy", "DONE");
+                    map.put("status-sell", "NEW");
+                    map.put("id-sell", idSell);
+                    map.put("price-sell-open", priceSell);
+                    firebase.addOrder(idSell, map);
+
+                    firebase.delete(orderId);
                 }
             }else if(side.equals("SELL")){
-
+                String statusSell = (String)map.get("status-sell");
+                long priceSell = Common.convertObectToLong(map.get("price"));
+                if("NEW".equals(statusSell)){
+                    map.put("status-sell", "DONE");
+                    map.put("price-sell-success", priceSell);
+                    firebase.updateDocumentField(orderId, map);
+                    //firebase.delete(orderId);
+                    firebase.addOrderLog(orderId, map);
+                }
             }
         }
     }

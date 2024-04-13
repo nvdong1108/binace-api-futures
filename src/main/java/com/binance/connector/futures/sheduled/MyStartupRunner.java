@@ -2,11 +2,13 @@ package com.binance.connector.futures.sheduled;
 
 import java.util.Date;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
 import com.binance.connector.futures.controller.ApiFirebase;
@@ -31,7 +33,17 @@ public class MyStartupRunner {
 
     @PostConstruct
     public void init() {
-        firebase.add("startTime",new Date().getTime() );
+        long statusBot = firebase.get("statusBot");
+        if(statusBot==-1){
+            createNewBot();
+        }
+        setResultInitSuccess(true);
+    }
+
+    public void continuteBot(){
+
+    }
+    public synchronized void createNewBot(){
         priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
         firebase.deleAll();
@@ -39,6 +51,7 @@ public class MyStartupRunner {
         log.info("\n\n"+
                  "------>   START BOT WITH : Price begin = {} , Positions Size = {}   <-----\n",priceBegin,sizePositionBegin);
         openAllOrder();
+        firebase.add("statusBot",1l);
     }
 
     private void openAllOrder(){
@@ -46,9 +59,13 @@ public class MyStartupRunner {
         for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
             priceOpenOrder = priceOpenOrder - Constant.SPACE_PRICE_INT;
             String result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, "BUY");
+            if(i== 0){
+                JSONObject jsonObject = new JSONObject(result);
+                long fromId =Common.convertObectToLong(jsonObject.get("orderId"));
+                firebase.add("fromId", fromId);
+            }
             firebase.addOrderId(result);
         }
-        setResultInitSuccess(true);
     }
     public boolean getResultInitSuccess(){
         return this.initSuccess;
