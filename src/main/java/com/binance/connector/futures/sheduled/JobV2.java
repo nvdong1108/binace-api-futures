@@ -78,7 +78,7 @@ public class JobV2 {
                     // step 2 . update firebase. 
                     JSONObject jsonOb = new JSONObject(result);
                     String idBuyNew =Common.convertObectToString(jsonOb.get("orderId"));
-                    long priceSellSuccess = Common.convertObectToLong(map.get("price"));
+                    long priceSellSuccess = Common.convertObectToLong(jsonOb.get("price"));
                     map.put("id-buy-next", idBuyNew);
                     map.put("status-sell", "DONE");
                     map.put("price-sell-success", priceSellSuccess);
