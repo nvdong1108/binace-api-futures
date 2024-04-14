@@ -23,6 +23,8 @@ public class MyStartupRunner {
     public static int priceBegin;
     public static double sizePositionBegin;
     private final static Logger log = LoggerFactory.getLogger(MyStartupRunner.class);
+
+    private static long startTime = 0l;
     
 
     @Autowired
@@ -37,6 +39,8 @@ public class MyStartupRunner {
         if(statusBot==-1){
             createNewBot();
         }
+        long _startTime = firebase.get("startTime");
+        setStartTime(_startTime);
         setResultInitSuccess(true);
     }
 
@@ -62,8 +66,9 @@ public class MyStartupRunner {
             String result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, "BUY");
             if(i== 0){
                 JSONObject jsonObject = new JSONObject(result);
-                long fromId =Common.convertObectToLong(jsonObject.get("orderId"));
-                firebase.add("fromId", fromId);
+                long startTime =Common.convertObectToLong(jsonObject.get("updateTime"));
+                firebase.add("startTime", startTime);
+                setStartTime(startTime);
             }
             firebase.addOrderBuy(result);
         }
@@ -95,5 +100,15 @@ public class MyStartupRunner {
         }
         return priceBegin;
     }
+
+    public static long getStartTime() {
+        return startTime;
+    }
+
+    public static void setStartTime(long startTime) {
+        MyStartupRunner.startTime = startTime;
+    }
+
+    
     
 }

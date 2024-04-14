@@ -17,6 +17,7 @@ import com.binance.connector.futures.client.impl.UMFuturesClientImpl;
 import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.config.PrivateConfig;
+import com.binance.connector.futures.sheduled.MyStartupRunner;
 
 @Component
 public class ApiController {
@@ -29,10 +30,10 @@ public class ApiController {
     
     public String newOrders(int price, double quantity, String side){
         try {
-            if(!validOpensOrders(price,side)){
-                logger.error("\n\n------>    ERROR  Create {} price {} \n", side,price);
-                return null;
-            }
+            // if(!validOpensOrders(price,side)){
+            //     logger.error("\n\n------>    ERROR  Create {} price {} \n", side,price);
+            //     return null;
+            // }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             // if (logger.isDebugEnabled()) {
@@ -106,15 +107,13 @@ public class ApiController {
     }
     public JSONArray getTradeHistory(){
         try {
-            long fromId = firebase.get("fromId");
-            long endTime = new Date().getTime();
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
-            //parameters.put("startTime", startTime);
-            // parameters.put("endTime", endTime);
-            //parameters.put("fromId", fromId);
-            parameters.put("limit", "10");
-
+            parameters.put("limit", "15");
+            long startTime = MyStartupRunner.getStartTime();
+            if(startTime!=-1){
+                parameters.put("startTime", startTime);
+            }
             String result = client.account().accountTradeList(parameters);
             if(result==null || result.isBlank()){
                 return null;
