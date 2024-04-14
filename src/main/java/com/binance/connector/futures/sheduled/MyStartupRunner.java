@@ -64,7 +64,7 @@ public class MyStartupRunner {
                 long fromId =Common.convertObectToLong(jsonObject.get("orderId"));
                 firebase.add("fromId", fromId);
             }
-            firebase.addOrderId(result);
+            firebase.addOrderBuy(result);
         }
     }
     public boolean getResultInitSuccess(){

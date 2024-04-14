@@ -74,7 +74,7 @@ public class JobV2 {
                     // step 1 . new buy 
                     int priceBuyOld =Common.convertObectToInt(map.get("price=buy"));
                     String result = apiController.newOrders(priceBuyOld, 0.01  , "BUY");
-                    firebase.addOrderId(result);
+                    firebase.addOrderBuy(result);
                     // step 2 . update firebase. 
                     JSONObject jsonOb = new JSONObject(result);
                     String idBuyNew =Common.convertObectToString(jsonOb.get("orderId"));

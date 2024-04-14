@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.common.Common;
@@ -21,6 +23,8 @@ import com.google.firebase.cloud.FirestoreClient;
 
 @Component
 public class ApiFirebase {
+
+    private Logger logger = LoggerFactory.getLogger(ApiController.class);
 
 
     public long get(String fieldName){
@@ -70,7 +74,7 @@ public class ApiFirebase {
         }
     }
     
-    public boolean addOrderId(String result){
+    public boolean addOrderBuy(String result){
         try{
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
@@ -143,6 +147,7 @@ public class ApiFirebase {
                String orderId = document.getId();
                delete(orderId);
               }
+              logger.info("\n\n------>   DELETE ALL Data Firebase Positons Success\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
