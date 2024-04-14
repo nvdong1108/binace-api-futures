@@ -7,11 +7,12 @@ import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
 import com.binance.connector.futures.controller.ApiFirebase;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 @Component
@@ -27,7 +28,7 @@ public class JobV2 {
     ApiFirebase firebase;
     
     boolean paramFlagRunOneTime = true ;
-
+    private Logger logger = LoggerFactory.getLogger(JobV2.class);
 
     @Scheduled(fixedDelay = 7000)
     private void updateDocument(){
@@ -74,6 +75,9 @@ public class JobV2 {
                     // step 1 . new buy 
                     int priceBuyOld =Common.convertObectToInt(map.get("price-buy"));
                     String result = apiController.newOrders(priceBuyOld, 0.01  , "BUY");
+                    if(result==null || result.isBlank()){
+                           continue;
+                    }
                     firebase.addOrderBuy(result);
                     // step 2 . update firebase. 
                     JSONObject jsonOb = new JSONObject(result);

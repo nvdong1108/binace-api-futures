@@ -29,13 +29,15 @@ public class ApiController {
     
     public String newOrders(int price, double quantity, String side){
         try {
-            // if(!validOpensOrders(price,side)){
-            //     return null;
-            // }
+            if(!validOpensOrders(price,side)){
+                logger.error("\n\n------>    ERROR  Create {} price {} \n", side,price);
+                return null;
+            }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
-            logger.info("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
-            
+            // if (logger.isDebugEnabled()) {
+            //     logger.debug("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
+            // }
             parameters = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
             parameters.put("side", side);
