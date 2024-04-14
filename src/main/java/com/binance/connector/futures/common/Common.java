@@ -39,7 +39,8 @@ public class Common {
             return -1;
         }
         if(obj instanceof String || obj instanceof Integer){
-            return Long.parseLong(obj+"");
+            Double valueDouble = Double.parseDouble(obj+"");
+            return valueDouble.longValue();
         }
         return (long)obj;
     }

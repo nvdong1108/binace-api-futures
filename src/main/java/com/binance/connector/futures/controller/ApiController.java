@@ -29,9 +29,9 @@ public class ApiController {
     
     public String newOrders(int price, double quantity, String side){
         try {
-            if(!validOpensOrders(price,side)){
-                return null;
-            }
+            // if(!validOpensOrders(price,side)){
+            //     return null;
+            // }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             logger.info("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);

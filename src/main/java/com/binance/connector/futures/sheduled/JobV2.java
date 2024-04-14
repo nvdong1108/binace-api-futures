@@ -78,12 +78,14 @@ public class JobV2 {
                     // step 2 . update firebase. 
                     JSONObject jsonOb = new JSONObject(result);
                     String idBuyNew =Common.convertObectToString(jsonOb.get("orderId"));
-                    long priceSellSuccess = Common.convertObectToLong(jsonOb.get("price"));
+                    long priceSellSuccess = Common.convertObectToLong(jsonObject.get("price"));
+                    String qtySell = Common.convertObectToString(jsonObject.get("qty"));
                     map.put("id-buy-next", idBuyNew);
                     map.put("status-sell", "DONE");
                     map.put("price-sell-success", priceSellSuccess);
-                    firebase.updateDocumentField(orderId, map);
-                    //firebase.delete(orderId);
+                    map.put("qty-sell", qtySell);
+                    //firebase.updateDocumentField(orderId, map);
+                    firebase.delete(orderId);
                     firebase.addOrderLog(orderId, map);
                 }
             }
