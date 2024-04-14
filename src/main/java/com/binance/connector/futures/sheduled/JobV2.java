@@ -72,7 +72,7 @@ public class JobV2 {
                 String statusSell = (String)map.get("status-sell");
                 if("NEW".equals(statusSell)){
                     // step 1 . new buy 
-                    int priceBuyOld =Common.convertObectToInt(map.get("price=buy"));
+                    int priceBuyOld =Common.convertObectToInt(map.get("price-buy"));
                     String result = apiController.newOrders(priceBuyOld, 0.01  , "BUY");
                     firebase.addOrderBuy(result);
                     // step 2 . update firebase. 
