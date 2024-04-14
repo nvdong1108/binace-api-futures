@@ -46,7 +46,8 @@ public class MyStartupRunner {
     public synchronized void createNewBot(){
         priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
-        firebase.deleAll();
+        firebase.deleAll("LogSuccessOrder");
+        firebase.deleAll("positions");
         sizePositionBegin=api.getSizePosition();
         log.info("\n\n"+
                  "------>   START BOT WITH : Price begin = {} , Positions Size = {}   <-----\n",priceBegin,sizePositionBegin);

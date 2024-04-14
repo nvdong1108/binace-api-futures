@@ -1,5 +1,7 @@
 package com.binance.connector.futures.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -82,11 +84,16 @@ public class ApiFirebase {
             String orderId=Common.convertObectToString(jsonObject.get("orderId"));
             int price= Common.convertObectToInt(jsonObject.getString("price")) ;
             String side = jsonObject.getString("side").toLowerCase();
+            long time = Common.convertObectToLong(jsonObject.get("updateTime"));
+            Date date = new Date(time);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String dateFormat = simpleDateFormat.format(date);
 
             Map<String,Object> dataFild = new HashMap<>();
             dataFild.put("id-"+side,orderId);
             dataFild.put("status-"+side,"NEW");
             dataFild.put("price-"+side,price);
+            dataFild.put("time-"+side,dateFormat);
             field.put(orderId,dataFild);
             ApiFuture<WriteResult> future =  dbFirestore.collection("positions")
             .document(orderId).set(dataFild);
@@ -127,9 +134,9 @@ public class ApiFirebase {
         future.isDone();
     }
 
-    public void delete(String orderId){
+    public void delete(String orderId,String collectionName){
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        DocumentReference documentReference = dbFirestore.collection("positions").document(orderId);
+        DocumentReference documentReference = dbFirestore.collection(collectionName).document(orderId);
         try {
             ApiFuture<WriteResult> future = documentReference.delete();
             future.get();
@@ -138,14 +145,14 @@ public class ApiFirebase {
         }
         
     }
-    public void deleAll(){
+    public void deleAll(String collectionName){
         Firestore dbFirestore = FirestoreClient.getFirestore();
         try {
-            ApiFuture<QuerySnapshot> future = dbFirestore.collection("positions").get();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collection(collectionName).get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             for (QueryDocumentSnapshot document : documents) {
                String orderId = document.getId();
-               delete(orderId);
+               delete(orderId,collectionName);
               }
               logger.info("\n\n------>   DELETE ALL Data Firebase Positons Success\n");
         } catch (Exception e) {
