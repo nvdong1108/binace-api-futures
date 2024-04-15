@@ -25,6 +25,7 @@ public class MyStartupRunner {
     private final static Logger log = LoggerFactory.getLogger(MyStartupRunner.class);
 
     private static long startTime = 0l;
+    private static int spacePriceInt = 0;
     
 
     @Autowired
@@ -36,6 +37,12 @@ public class MyStartupRunner {
     @PostConstruct
     public void init() {
         long statusBot = firebase.get("statusBot");
+        int _spacePriceInt =Common.convertObectToInt( firebase.get("spacePriceInt"));
+        if(_spacePriceInt ==-1){
+            _spacePriceInt = Constant.SPACE_PRICE_DEFAULT;
+        }
+        setSpacePriceInt(_spacePriceInt);
+
         if(statusBot==-1){
             createNewBot();
         }
@@ -44,9 +51,6 @@ public class MyStartupRunner {
         setResultInitSuccess(true);
     }
 
-    public void continuteBot(){
-
-    }
     public synchronized void createNewBot(){
         priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
@@ -62,7 +66,7 @@ public class MyStartupRunner {
     private void openAllOrder(){
         int priceOpenOrder = priceBegin;
         for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
-            priceOpenOrder = priceOpenOrder - Constant.SPACE_PRICE_INT;
+            priceOpenOrder = priceOpenOrder - getSpacePriceInt();
             String result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, "BUY");
             if(i== 0){
                 JSONObject jsonObject = new JSONObject(result);
@@ -109,6 +113,11 @@ public class MyStartupRunner {
         MyStartupRunner.startTime = startTime;
     }
 
-    
-    
+    public static int getSpacePriceInt() {
+        return spacePriceInt;
+    }
+
+    public static void setSpacePriceInt(int spacePriceInt) {
+        MyStartupRunner.spacePriceInt = spacePriceInt;
+    }
 }

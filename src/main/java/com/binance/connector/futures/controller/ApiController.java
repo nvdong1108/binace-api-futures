@@ -1,14 +1,12 @@
 package com.binance.connector.futures.controller;
 
 import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.LinkedHashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.client.exceptions.BinanceClientException;
@@ -25,8 +23,6 @@ public class ApiController {
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
     UMFuturesClientImpl client  = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL); 
 
-    @Autowired
-    ApiFirebase firebase ; 
     
     public String newOrders(int price, double quantity, String side){
         try {
@@ -112,7 +108,7 @@ public class ApiController {
             parameters.put("limit", "15");
             long startTime = MyStartupRunner.getStartTime();
             if(startTime!=-1){
-                parameters.put("startTime", startTime);
+                //parameters.put("startTime", startTime);
             }
             String result = client.account().accountTradeList(parameters);
             if(result==null || result.isBlank()){

@@ -4,15 +4,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.binance.connector.futures.config.Constant;
+import com.binance.connector.futures.sheduled.MyStartupRunner;
 
 public class Common {
     public static int comparePrice(int price , int priceCompare) {
     int spacePrice = Math.abs(price-priceCompare);
-    int difference = spacePrice%Constant.SPACE_PRICE_INT;
+    int difference = spacePrice% MyStartupRunner.getSpacePriceInt();;
     if(difference >Constant.PRICE_LIMIT_DIFF){
         return -1;
     }
-    int value = spacePrice/Constant.SPACE_PRICE_INT;
+    int value = spacePrice/MyStartupRunner.getSpacePriceInt();;
     return value;
    }
 

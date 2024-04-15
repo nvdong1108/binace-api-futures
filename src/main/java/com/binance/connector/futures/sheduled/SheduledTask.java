@@ -62,10 +62,10 @@ public class SheduledTask {
         if(priceBegin<markPrice){
             priceOpenOrders  = priceBegin;
         }else {
-            priceOpenOrders = ((priceBegin-markPrice)%Constant.SPACE_PRICE_INT) + markPrice;
+            priceOpenOrders = ((priceBegin-markPrice)%MyStartupRunner.getSpacePriceInt() ) + markPrice;
         }
         for(int i = 0 ; i < Constant.MAX_OPEN_ORDES ; i ++){
-            priceOpenOrders=priceOpenOrders-Constant.SPACE_PRICE_INT;
+            priceOpenOrders=priceOpenOrders-MyStartupRunner.getSpacePriceInt();
             boolean result = false;
             if(jsonArray !=null && !jsonArray.isEmpty()){
                 result = Common.hadOpenOrder(jsonArray, priceOpenOrders);
@@ -89,6 +89,7 @@ public class SheduledTask {
         double sizePositionBegin = MyStartupRunner.sizePositionBegin;
         double sizePositionCurrenr = apiController.getSizePosition();
         double sizePositionDiff =sizePositionCurrenr-sizePositionBegin;
+        int spacePrice = MyStartupRunner.getSpacePriceInt();
         if(sizePositionDiff <= 0 ){
             return;
         }
@@ -98,18 +99,18 @@ public class SheduledTask {
             //todo
         }
         int priceDifference = priceBegin - markPrice; 
-        int difference = priceDifference%Constant.SPACE_PRICE_INT;
-        int countAllOpensOrdersSELL = priceDifference/Constant.SPACE_PRICE_INT;
+        int difference = priceDifference%spacePrice;
+        int countAllOpensOrdersSELL = priceDifference/spacePrice;
         int countOpenSellRemaining =(int)(sizePositionDiff/Constant.QUANTITY_ONE_EXCHANGE); ;
         if (countAllOpensOrdersSELL!=countOpenSellRemaining){
             logger.error("countAllOpensOrdersSELL {} != countOpenSellRemaining {}  " , countAllOpensOrdersSELL,countOpenSellRemaining);
             //todo
         }
-        int priceOpensOrder = markPrice+difference-Constant.SPACE_PRICE_INT;
+        int priceOpensOrder = markPrice+difference-spacePrice;
         JSONArray jsonArray = apiController.getCurrentAllOpenOrders(Constant.SIDE_SELL);
        
         for(int i = 0 ; i < countAllOpensOrdersSELL ; i++){
-            priceOpensOrder = priceOpensOrder+Constant.SPACE_PRICE_INT;
+            priceOpensOrder = priceOpensOrder+spacePrice;
             boolean resul=false;
             if(jsonArray!=null && !jsonArray.isEmpty()){
                 resul=Common.hadOpenOrder(jsonArray,priceOpensOrder);
