@@ -1,7 +1,9 @@
 package com.binance.connector.futures.controller;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -101,6 +103,8 @@ public class ApiController {
         }
         return false;
     }
+
+    private JSONArray jsonaArrayTraceListOld= new JSONArray();
     public JSONArray getTradeHistory(){
         try {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
@@ -114,7 +118,13 @@ public class ApiController {
             if(result==null || result.isBlank()){
                 return null;
             }
-            return  new JSONArray(result);
+            JSONArray jsonArray = new JSONArray(result);
+            boolean isEqual = Common.isEqual(jsonArray, jsonaArrayTraceListOld);
+            if(isEqual){
+                return null;
+            }
+            jsonaArrayTraceListOld = new JSONArray(result);
+            return  jsonArray;
         }catch(Exception e){
             logger.error(e.getMessage());
             return null;
