@@ -2,6 +2,7 @@ package com.binance.connector.futures.controller;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.config.PrivateConfig;
 import com.binance.connector.futures.sheduled.MyStartupRunner;
+import com.google.api.client.util.Data;
 
 @Component
 public class ApiController {
@@ -111,8 +113,10 @@ public class ApiController {
             parameters.put("symbol", "BTCUSDT");
             parameters.put("limit", "15");
             long startTime = MyStartupRunner.getStartTime();
+            
             if(startTime!=-1){
-                //parameters.put("startTime", startTime);
+                parameters.put("startTime", startTime);
+                parameters.put("endTime", new Date().getTime());
             }
             String result = client.account().accountTradeList(parameters);
             if(result==null || result.isBlank()){

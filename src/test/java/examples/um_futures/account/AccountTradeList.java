@@ -21,12 +21,12 @@ public final class AccountTradeList {
         LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
 
         UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL);
-        Date date = new Date();
-        long startTime = 1712849842169l;
+        long startTime = 1713400680639l;
+        long endTime = new Date().getTime();
         parameters.put("symbol", "BTCUSDT");
         parameters.put("startTime",startTime );
-        parameters.put("endTime", date.getTime());
-        parameters.put("limit", "10");
+        parameters.put("endTime",endTime );
+        parameters.put("limit", "15");
         try {
             String result = client.account().accountTradeList(parameters);
             logger.info(result);
