@@ -1,10 +1,8 @@
 package com.binance.connector.futures.controller;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,10 +17,11 @@ import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.config.PrivateConfig;
 import com.binance.connector.futures.sheduled.MyStartupRunner;
-import com.google.api.client.util.Data;
 
 @Component
 public class ApiController {
+
+    private JSONArray jsonaArrayTraceListOld= new JSONArray();
 
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
     UMFuturesClientImpl client  = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL); 
@@ -30,15 +29,8 @@ public class ApiController {
     
     public String newOrders(int price, double quantity, String side){
         try {
-            // if(!validOpensOrders(price,side)){
-            //     logger.error("\n\n------>    ERROR  Create {} price {} \n", side,price);
-            //     return null;
-            // }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
-            // if (logger.isDebugEnabled()) {
-            //     logger.debug("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
-            // }
             parameters = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
             parameters.put("side", side);
@@ -82,31 +74,7 @@ public class ApiController {
         }
         return result;
     }
-    private boolean validOpensOrders(int price, String side){
-        JSONObject jsonObject = getOneTradeList();
-        if(jsonObject==null){
-            return true;
-        }
-        String _sideTrade = jsonObject.getString("side");
-        String _priceTrade = jsonObject.getString("price");
-        if(!_sideTrade.equalsIgnoreCase(side) ){
-            return true; 
-        }
-        int intPriceTrade = (int)Double.parseDouble(_priceTrade);
-        int resultCompare =Common.comparePrice(intPriceTrade, price);
-        if(resultCompare!=0){
-               return true;
-        }
-        if(Constant.SIDE_BUY.equals(side)){
-            JSONArray jsonArrayBuy=getCurrentAllOpenOrders(side);
-            if(jsonArrayBuy==null || jsonArrayBuy.isEmpty()){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private JSONArray jsonaArrayTraceListOld= new JSONArray();
+    
     public JSONArray getTradeHistory(){
         try {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
