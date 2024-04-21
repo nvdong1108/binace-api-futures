@@ -48,7 +48,7 @@ public class Common {
     }
     public static int convertObectToInt(Object obj){
         if(obj==null){
-            return 0;
+            return -1;
         }
         if(obj instanceof String ){
             Double _double= Double.parseDouble(obj+"");

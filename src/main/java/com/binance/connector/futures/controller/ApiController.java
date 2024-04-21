@@ -29,7 +29,7 @@ public class ApiController {
     
     public String newOrders(int price, double quantity, String side){
         try {
-            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            DecimalFormat decimalFormat = new DecimalFormat("#.###");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             parameters = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
@@ -75,7 +75,7 @@ public class ApiController {
         return result;
     }
     
-    public JSONArray getTradeHistory(){
+    public synchronized JSONArray getTradeHistory(){
         try {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             parameters.put("symbol", "BTCUSDT");
@@ -91,6 +91,9 @@ public class ApiController {
                 return null;
             }
             JSONArray jsonArray = new JSONArray(result);
+            if(jsonArray.length()==0){
+                return null;
+            }
             boolean isEqual = Common.isEqual(jsonArray, jsonaArrayTraceListOld);
             if(isEqual){
                 return null;

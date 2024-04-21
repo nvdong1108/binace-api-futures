@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.common.Common;
-import com.binance.connector.futures.config.Constant;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -29,23 +28,24 @@ public class ApiFirebase {
     private Logger logger = LoggerFactory.getLogger(ApiController.class);
 
 
-    public long get(String fieldName){
+    public Object get(String fieldName){
         Firestore dbFirestore = FirestoreClient.getFirestore();
         FieldMask fieldMask = FieldMask.of(fieldName);
         ApiFuture<DocumentSnapshot> future =  dbFirestore.collection("constant").document(fieldName).get(fieldMask);
         try{
             DocumentSnapshot document = future.get();
             if (!document.exists()) {
-                return Constant.NOT_FOUND;
+                return null;
                 
             }
             Object beginPricesData = document.getData();
             Map<String,Object> map = convertObjectToHashMap(beginPricesData);
-            long value =Common.convertObectToLong(map.get(fieldName));
+            Object value = map.get(fieldName);
+            //long value =Common.convertObectToLong(map.get(fieldName));
             return value;
         }catch(Exception ex){
             ex.printStackTrace();
-            return Constant.NOT_FOUND;
+            return null;
         }
     }
     public Map<String,Object> getDoucment(String orderId){
@@ -76,7 +76,7 @@ public class ApiFirebase {
         }
     }
     
-    public boolean addOrderBuy(String result){
+    public boolean addOrder(String result){
         try{
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
@@ -129,7 +129,7 @@ public class ApiFirebase {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         Map<String,Object> field = new HashMap<>(); 
         field.put(orderId,value);
-        ApiFuture<WriteResult> future =  dbFirestore.collection("LogSuccessOrder")
+        ApiFuture<WriteResult> future =  dbFirestore.collection("log")
         .document(orderId).set(field);
         future.isDone();
     }

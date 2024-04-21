@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 
 @Component
-public class JobV2 {
+public class JobBUY {
 
     @Autowired
     ApiController apiController;
@@ -31,11 +31,10 @@ public class JobV2 {
 
     @Scheduled(fixedDelay = 7000)
     private void updateDocument() {
-        if (myStartupRunner.getResultInitSuccess()) {
+        if (myStartupRunner.isRunBotBuy()) {
             loadOrder();
         }
     }
-    
     private synchronized void loadOrder() {
         JSONArray jsonArray = apiController.getTradeHistory();
         if (jsonArray == null || jsonArray.isEmpty()) {
@@ -59,7 +58,7 @@ public class JobV2 {
                 if (statusBuy.equals("NEW")) {
                     // create order SELLNEW
                     int priceBuy = Common.convertObectToInt(map.get("price-buy"));
-                    int priceOpenSell = priceBuy + MyStartupRunner.getSpacePriceInt() + 300;
+                    int priceOpenSell = priceBuy + MyStartupRunner.getSpacePriceBenefit();
                     String result = apiController.newOrders(priceOpenSell, 0.01, "SELL");
                     if (result == null || result.isBlank()) {
                         continue;
@@ -90,7 +89,7 @@ public class JobV2 {
                     if (result == null || result.isBlank()) {
                         continue;
                     }
-                    firebase.addOrderBuy(result);
+                    firebase.addOrder(result);
                     // step 2 . update firebase.
                     JSONObject jsonOb = new JSONObject(result);
                     String idBuyNew = Common.convertObectToString(jsonOb.get("orderId"));
