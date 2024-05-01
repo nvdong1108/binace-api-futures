@@ -24,7 +24,16 @@ public class ApiController {
     private JSONArray jsonaArrayTraceListOld= new JSONArray();
 
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
-    UMFuturesClientImpl client  = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY, PrivateConfig.TESTNET_BASE_URL); 
+
+    UMFuturesClientImpl client  = new UMFuturesClientImpl(
+        PrivateConfig.API_KEY, 
+        PrivateConfig.SECRET_KEY, 
+        PrivateConfig.UM_BASE_URL); 
+
+    // UMFuturesClientImpl client  = new UMFuturesClientImpl(
+    //         PrivateConfig.TESTNET_API_KEY, 
+    //         PrivateConfig.TESTNET_SECRET_KEY, 
+    //         PrivateConfig.TESTNET_BASE_URL); 
 
     
     public String newOrders(int price, double quantity, String side){
@@ -32,7 +41,7 @@ public class ApiController {
             DecimalFormat decimalFormat = new DecimalFormat("#.###");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
             parameters = new LinkedHashMap<>();
-            parameters.put("symbol", "BTCUSDT");
+            parameters.put("symbol", Constant.SYMBOL);
             parameters.put("side", side);
             parameters.put("type", "LIMIT");
             parameters.put("timeInForce", "GTC");
@@ -56,7 +65,7 @@ public class ApiController {
             logger.info("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
             
             parameters = new LinkedHashMap<>();
-            parameters.put("symbol", "BTCUSDT");
+            parameters.put("symbol", Constant.SYMBOL);
             parameters.put("side", side);
             parameters.put("type", "LIMIT");
             parameters.put("timeInForce", "GTC");
@@ -78,7 +87,7 @@ public class ApiController {
     public synchronized JSONArray getTradeHistory(){
         try {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
-            parameters.put("symbol", "BTCUSDT");
+            parameters.put("symbol", Constant.SYMBOL);
             parameters.put("limit", "15");
             long startTime = MyStartupRunner.getStartTime();
             
@@ -107,47 +116,47 @@ public class ApiController {
     }
 
 
-    public JSONObject getOneTradeList(){
-        try {
-            LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
-            parameters.put("symbol", "BTCUSDT");
-            parameters.put("limit", "1");
-            String result = client.account().accountTradeList(parameters);
-            if(result==null || result.isBlank()){
-                return null;
-            }
-            JSONArray jsonArray = new JSONArray(result);
-            if(jsonArray.isEmpty()){
-                return null;
-            }
-            return jsonArray.getJSONObject(0);
-        }catch(Exception e){
-            logger.error(e.getMessage());
-            return null;
-        }
-    }
+    // public JSONObject getOneTradeList(){
+    //     try {
+    //         LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
+    //         parameters.put("symbol", Constant.SYMBOL);
+    //         parameters.put("limit", "1");
+    //         String result = client.account().accountTradeList(parameters);
+    //         if(result==null || result.isBlank()){
+    //             return null;
+    //         }
+    //         JSONArray jsonArray = new JSONArray(result);
+    //         if(jsonArray.isEmpty()){
+    //             return null;
+    //         }
+    //         return jsonArray.getJSONObject(0);
+    //     }catch(Exception e){
+    //         logger.error(e.getMessage());
+    //         return null;
+    //     }
+    // }
 
-     public int getMarkPrice(){
-        LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
-        parameters.put("symbol", Constant.SYMBOL);
-        String result = client.market().tickerSymbol(parameters); 
-        JSONObject jsonObject = new JSONObject(result);
-        String markPrice = jsonObject.getString("price");
-        return  (int)Double.parseDouble(markPrice);
-    }
+    //  public int getMarkPrice(){
+    //     LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
+    //     parameters.put("symbol", Constant.SYMBOL);
+    //     String result = client.market().tickerSymbol(parameters); 
+    //     JSONObject jsonObject = new JSONObject(result);
+    //     String markPrice = jsonObject.getString("price");
+    //     return  (int)Double.parseDouble(markPrice);
+    // }
 
-    public Double getSizePosition(){
-        LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
-        parameters.put("symbol", Constant.SYMBOL);
-        String result = client.account().positionInformation(parameters);
-        if(result==null){
-            return Double.valueOf(0);
-        }
-        JSONArray jsonArray = new JSONArray(result);
-        JSONObject jsonObject = jsonArray.getJSONObject(0);
-        DecimalFormat df = new DecimalFormat("#.####");
-        return Double.parseDouble(df.format(Double.parseDouble(jsonObject.getString("positionAmt"))));
-    }
+    // public Double getSizePosition(){
+    //     LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
+    //     parameters.put("symbol", Constant.SYMBOL);
+    //     String result = client.account().positionInformation(parameters);
+    //     if(result==null){
+    //         return Double.valueOf(0);
+    //     }
+    //     JSONArray jsonArray = new JSONArray(result);
+    //     JSONObject jsonObject = jsonArray.getJSONObject(0);
+    //     DecimalFormat df = new DecimalFormat("#.####");
+    //     return Double.parseDouble(df.format(Double.parseDouble(jsonObject.getString("positionAmt"))));
+    // }
 
     public JSONArray getCurrentAllOpenOrders(String _side){
         LinkedHashMap<String, Object> parameters=new LinkedHashMap<>();

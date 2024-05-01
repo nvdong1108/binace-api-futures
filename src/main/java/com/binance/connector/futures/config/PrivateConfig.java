@@ -4,7 +4,7 @@ public final class PrivateConfig {
     private PrivateConfig() {
     }
     public static final String UM_BASE_URL = "https://fapi.binance.com";
-    public static final String CM_BASE_URL = "https://dapi.binance.com";
+    
     public static final String API_KEY = "afZzAgNGH5Mq1dEx5fguELTbY4JZ5n9pf5WNfAQu8rWDiPQUjVxho3SHZ2BLiDSx";
     public static final String SECRET_KEY = "pjaF2LZ6vRIcpEQMcycGWFIwsc0ctdwRRda7tJ5um22OHR1ztjXX4JwbLF26dRyN";
 

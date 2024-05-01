@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.common.Common;
+import com.binance.connector.futures.config.Constant;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -31,7 +32,8 @@ public class ApiFirebase {
     public Object get(String fieldName){
         Firestore dbFirestore = FirestoreClient.getFirestore();
         FieldMask fieldMask = FieldMask.of(fieldName);
-        ApiFuture<DocumentSnapshot> future =  dbFirestore.collection("constant").document(fieldName).get(fieldMask);
+        String collectionName = Constant.SYMBOL + "_constant";
+        ApiFuture<DocumentSnapshot> future =  dbFirestore.collection(collectionName).document(fieldName).get(fieldMask);
         try{
             DocumentSnapshot document = future.get();
             if (!document.exists()) {
@@ -50,7 +52,8 @@ public class ApiFirebase {
     }
     public Map<String,Object> getDoucment(String orderId){
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        DocumentReference documentsReference =  dbFirestore.collection("positions").document(orderId);
+        String collectionName = Constant.SYMBOL + "_positions";
+        DocumentReference documentsReference =  dbFirestore.collection(collectionName).document(orderId);
         try{
             ApiFuture<DocumentSnapshot> future= documentsReference.get();
             return apiFutureToMap(future);
@@ -95,7 +98,9 @@ public class ApiFirebase {
             dataFild.put("price-"+side,price);
             dataFild.put("time-"+side,dateFormat);
             field.put(orderId,dataFild);
-            ApiFuture<WriteResult> future =  dbFirestore.collection("positions")
+
+            String collectionName = Constant.SYMBOL + "_positions";
+            ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
             .document(orderId).set(dataFild);
             future.isDone();
             return true;
@@ -108,7 +113,8 @@ public class ApiFirebase {
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
             field.put(orderId,dataFild);
-            ApiFuture<WriteResult> future =  dbFirestore.collection("positions")
+            String collectionName = Constant.SYMBOL + "_positions";
+            ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
             .document(orderId).set(dataFild);
             future.isDone();
             return true;
@@ -120,7 +126,9 @@ public class ApiFirebase {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         Map<String,Object> field = new HashMap<>(); 
         field.put(fieldName,value);
-        ApiFuture<WriteResult> future =  dbFirestore.collection("constant")
+
+        String collectionName = Constant.SYMBOL + "_constant";
+        ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
         .document(fieldName).set(field);
         future.isDone();
     }
@@ -129,7 +137,9 @@ public class ApiFirebase {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         Map<String,Object> field = new HashMap<>(); 
         field.put(orderId,value);
-        ApiFuture<WriteResult> future =  dbFirestore.collection("log")
+
+        String collectionName = Constant.SYMBOL + "_log";
+        ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
         .document(orderId).set(field);
         future.isDone();
     }
@@ -141,7 +151,7 @@ public class ApiFirebase {
             ApiFuture<WriteResult> future = documentReference.delete();
             future.get();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); 
         }
         
     }
@@ -163,7 +173,9 @@ public class ApiFirebase {
 
     public  boolean updateDocumentField(String orderId, Map<String, Object> updates) {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        DocumentReference documentReference = dbFirestore.collection("positions").document(orderId);
+
+        String collectionName = Constant.SYMBOL + "_positions";
+        DocumentReference documentReference = dbFirestore.collection(collectionName).document(orderId);
         try {
             ApiFuture<WriteResult> future = documentReference.update(updates);
             future.get();

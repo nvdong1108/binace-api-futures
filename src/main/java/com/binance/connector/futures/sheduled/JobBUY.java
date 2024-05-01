@@ -1,6 +1,7 @@
 package com.binance.connector.futures.sheduled;
 import org.springframework.stereotype.Component;
 import com.binance.connector.futures.common.Common;
+import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
 import com.binance.connector.futures.controller.ApiFirebase;
 
@@ -59,7 +60,7 @@ public class JobBUY {
                     // create order SELLNEW
                     int priceBuy = Common.convertObectToInt(map.get("price-buy"));
                     int priceOpenSell = priceBuy + MyStartupRunner.getSpacePriceBenefit();
-                    String result = apiController.newOrders(priceOpenSell, 0.01, "SELL");
+                    String result = apiController.newOrders(priceOpenSell, Constant.QUANTITY_ONE_EXCHANGE, "SELL");
                     if (result == null || result.isBlank()) {
                         continue;
                     }
@@ -78,14 +79,15 @@ public class JobBUY {
                     map.put("price-sell-open", priceSell);
                     map.put("time-sell", dateFormat);
                     firebase.addOrder(idSell, map);
-                    firebase.delete(orderId, "positions");
+                    String collactionName = Constant.SYMBOL+"_positions";
+                    firebase.delete(orderId, collactionName);
                 }
             } else if (side.equals("SELL")) {
                 String statusSell = (String) map.get("status-sell");
                 if ("NEW".equals(statusSell)) {
                     // step 1 . new buy
                     int priceBuyOld = Common.convertObectToInt(map.get("price-buy"));
-                    String result = apiController.newOrders(priceBuyOld, 0.01, "BUY");
+                    String result = apiController.newOrders(priceBuyOld, Constant.QUANTITY_ONE_EXCHANGE, "BUY");
                     if (result == null || result.isBlank()) {
                         continue;
                     }
@@ -100,7 +102,8 @@ public class JobBUY {
                     map.put("price-sell-success", priceSellSuccess);
                     map.put("qty-sell", qtySell);
                     // firebase.updateDocumentField(orderId, map);
-                    firebase.delete(orderId, "positions");
+                    String collactionName = Constant.SYMBOL+"_positions";
+                    firebase.delete(orderId, collactionName);
                     firebase.addOrderLog(orderId, map);
                 }
             }

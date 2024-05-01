@@ -55,7 +55,6 @@ public class JobSELL {
                 orderIdSuccess.add(orderId);
                 continue;
             }
-            
             if (side.equalsIgnoreCase("SELL")) {
                 String status = (String) map.get("status-sell");
                 if (status.equals("NEW")) {
@@ -104,6 +103,7 @@ public class JobSELL {
                     // firebase.updateDocumentField(orderId, map);
                     firebase.delete(orderId, "positions");
                     firebase.addOrderLog(orderId, map);
+                    // check 
                 }
             }
         }

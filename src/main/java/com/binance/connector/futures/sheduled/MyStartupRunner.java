@@ -67,11 +67,11 @@ public class MyStartupRunner {
     public synchronized void createNewBot() throws Exception{
         priceBegin=getBeginPrice();
         api.cancelAllOpenOrders();
-        firebase.deleAll("LogSuccessOrder");
-        firebase.deleAll("positions");
-        sizePositionBegin=api.getSizePosition();
+        firebase.deleAll(Constant.SYMBOL+"_log");
+        firebase.deleAll(Constant.SYMBOL+"_positions");
+        
         log.info("\n\n"+
-                 "------>   START BOT WITH : Price begin = {} , Positions Size = {}   <-----\n",priceBegin,sizePositionBegin);
+                 "------>   START BOT WITH : Price begin = {}    <-----\n",priceBegin);
         openAllOrder();
         firebase.add("statusBot",1l);
     }
