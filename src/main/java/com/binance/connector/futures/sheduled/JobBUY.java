@@ -37,7 +37,7 @@ public class JobBUY {
         }
     }
     private synchronized void loadOrder() {
-        JSONArray jsonArray = apiController.getTradeHistory();
+        JSONArray jsonArray = apiController.getTradeHistory("BUY");
         if (jsonArray == null || jsonArray.isEmpty()) {
             return;
         }
@@ -48,7 +48,7 @@ public class JobBUY {
             if(orderIdSuccess.contains(orderId)){
                 continue;
             }
-            Map<String, Object> map = firebase.getDoucment(orderId);
+            Map<String, Object> map = firebase.getDoucment("BUY_"+orderId);
             if (map == null) {
                 orderIdSuccess.add(orderId);
                 continue;
@@ -78,9 +78,9 @@ public class JobBUY {
                     map.put("id-sell", idSell);
                     map.put("price-sell-open", priceSell);
                     map.put("time-sell", dateFormat);
-                    firebase.addOrder(idSell, map);
+                    firebase.addOrder(("BUY_"+idSell), map);
                     String collactionName = Constant.SYMBOL+"_positions";
-                    firebase.delete(orderId, collactionName);
+                    firebase.delete("BUY_"+orderId, collactionName);
                 }
             } else if (side.equals("SELL")) {
                 String statusSell = (String) map.get("status-sell");
@@ -91,7 +91,7 @@ public class JobBUY {
                     if (result == null || result.isBlank()) {
                         continue;
                     }
-                    firebase.addOrder(result);
+                    firebase.addOrder(result,"BUY");
                     // step 2 . update firebase.
                     JSONObject jsonOb = new JSONObject(result);
                     String idBuyNew = Common.convertObectToString(jsonOb.get("orderId"));
@@ -103,8 +103,8 @@ public class JobBUY {
                     map.put("qty-sell", qtySell);
                     // firebase.updateDocumentField(orderId, map);
                     String collactionName = Constant.SYMBOL+"_positions";
-                    firebase.delete(orderId, collactionName);
-                    firebase.addOrderLog(orderId, map);
+                    firebase.delete("BUY_"+orderId, collactionName);
+                    firebase.addOrderLog(orderId, map,"BUY");
                 }
             }
         }

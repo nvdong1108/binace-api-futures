@@ -22,10 +22,15 @@ public class FirebaseInitialization {
         try {
             FileInputStream serviceAccount = new FileInputStream("./key-firebase.json");
     
+            @SuppressWarnings("deprecation")
             FirebaseOptions options = new FirebaseOptions.Builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
             .build();
             FirebaseApp.initializeApp(options);
+            // if (!FirebaseApp.getApps(this).isEmpty()){
+            //         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            // }
+           
         } catch (Exception e) {
             logger.error(e.getMessage());
         }

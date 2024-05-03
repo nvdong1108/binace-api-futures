@@ -79,7 +79,7 @@ public class ApiFirebase {
         }
     }
     
-    public boolean addOrder(String result){
+    public boolean addOrder(String result,String jobSide){
         try{
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
@@ -97,11 +97,11 @@ public class ApiFirebase {
             dataFild.put("status-"+side,"NEW");
             dataFild.put("price-"+side,price);
             dataFild.put("time-"+side,dateFormat);
-            field.put(orderId,dataFild);
+            field.put(jobSide+"_"+orderId,dataFild);
 
             String collectionName = Constant.SYMBOL + "_positions";
             ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
-            .document(orderId).set(dataFild);
+            .document(jobSide+"_"+orderId).set(dataFild);
             future.isDone();
             return true;
         }catch(Exception e){
@@ -133,14 +133,14 @@ public class ApiFirebase {
         future.isDone();
     }
     
-    public void addOrderLog(String orderId,Object value){
+    public void addOrderLog(String orderId,Object value,String side){
         Firestore dbFirestore = FirestoreClient.getFirestore();
         Map<String,Object> field = new HashMap<>(); 
-        field.put(orderId,value);
+        field.put(side+"_"+orderId,value);
 
         String collectionName = Constant.SYMBOL + "_log";
         ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
-        .document(orderId).set(field);
+        .document(side+"_"+orderId).set(field);
         future.isDone();
     }
 
@@ -155,14 +155,16 @@ public class ApiFirebase {
         }
         
     }
-    public void deleAll(String collectionName){
+    public void deleAll(String collectionName,String side){
         Firestore dbFirestore = FirestoreClient.getFirestore();
         try {
             ApiFuture<QuerySnapshot> future = dbFirestore.collection(collectionName).get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             for (QueryDocumentSnapshot document : documents) {
                String orderId = document.getId();
-               delete(orderId,collectionName);
+               if(orderId.contains(side)){
+                    delete(orderId,collectionName);
+               }
               }
               logger.info("\n\n------>   DELETE ALL Data Firebase Positons Success\n");
         } catch (Exception e) {

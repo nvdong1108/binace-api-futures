@@ -18,15 +18,13 @@ import jakarta.annotation.PostConstruct;
 public class MyStartupRunner {
 
     private boolean initSuccess = false;
-    public static int priceBegin;
+    //public static int priceBegin;
     public static double sizePositionBegin;
     private final static Logger log = LoggerFactory.getLogger(MyStartupRunner.class);
 
-    private static long startTime = -1l;
+    public static  long startTime_SEL = -1l;
+    public static  long startTime_BUY= -1l;
     private static int spacePriceInt = 0;
-
-    private static String botType = null;
-    
 
     @Autowired
     ApiController api;
@@ -37,64 +35,71 @@ public class MyStartupRunner {
     @PostConstruct
     public void init() {
         try{
-            long statusBot = Common.convertObectToLong(firebase.get("statusBot"));
-            botType = (String)firebase.get("bot-type");
-            if(botType == null ){
-                throw new Exception("don't get bot type value");
-            }
+            
             int _spacePriceInt =Common.convertObectToInt(firebase.get("spacePriceInt"));
             if(_spacePriceInt == -1){
                 throw new Exception("don't get space price value");
             }
             setSpacePriceInt(_spacePriceInt);
     
-            if(statusBot==-1){
+            long statusBotSELL = Common.convertObectToLong(firebase.get("statusBot_SELL"));
+            if(statusBotSELL!=1){
                 long startTime = new Date().getTime();
-                firebase.add("startTime", startTime);
-                setStartTime(startTime);
-                createNewBot();
+                firebase.add("startTime_SELL", startTime);
+                setStartTimeSELL(startTime);
+                createNewBot("SELL");
             }else {
-                long _startTime = (long)firebase.get("startTime");
-                setStartTime(_startTime);
+                long _startTimeSELL = (long)firebase.get("startTime_SELL");
+                setStartTimeSELL(_startTimeSELL);
             }
+            // 
+            long statusBotBUY = Common.convertObectToLong(firebase.get("statusBot_BUY"));
+            if(statusBotBUY!=1){
+                long startTime = new Date().getTime();
+                firebase.add("startTime_BUY", startTime);
+                setStartTimeBUY(startTime);
+                createNewBot("BUY");
+            }else {
+                long _startTimeBUY = (long)firebase.get("startTime_BUY");
+                setStartTimeBUY(_startTimeBUY);
+            }
+
             setResultInitSuccess(true);
         }catch (Exception ex){
-            log.error("\n\t\t****RETURN ERROR : {}\n",ex.getMessage());
+            log.error("\n\t\t****RETURN ERROR : {}\n",ex);
         }
     }
 
 
-    public synchronized void createNewBot() throws Exception{
-        priceBegin=getBeginPrice();
-        api.cancelAllOpenOrders();
-        firebase.deleAll(Constant.SYMBOL+"_log");
-        firebase.deleAll(Constant.SYMBOL+"_positions");
-        
+    public synchronized void createNewBot(String side) throws Exception{
+        api.cancelAllOpenOrders(side);
+        firebase.deleAll(Constant.SYMBOL+"_log",side);
+        firebase.deleAll(Constant.SYMBOL+"_positions",side);
+        int priceBeginSide=getBeginPrice(side);
         log.info("\n\n"+
-                 "------>   START BOT WITH : Price begin = {}    <-----\n",priceBegin);
-        openAllOrder();
-        firebase.add("statusBot",1l);
+                 "------>   START BOT WITH : Price begin = {}    <-----\n",priceBeginSide);
+
+        openAllOrder(priceBeginSide,side);
+        firebase.add("statusBot_"+side,1l);
     }
 
-    private void openAllOrder(){
-        int priceOpenOrder = priceBegin;
+    private void openAllOrder(int priceOpenOrder, String side ){
         for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
             if(i>0) {
-                if(isBotBuy()){
+                if("BUY".equals(side)){
                     priceOpenOrder = priceOpenOrder - getSpacePriceInt();
-                }else if(isBotSell()){
+                }else if("SELL".equals(side)){
                     priceOpenOrder = priceOpenOrder + getSpacePriceInt();
                 }
             }
-            String  result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, botType);
-            firebase.addOrder(result);
+            String  result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, side);
+            firebase.addOrder(result,side);
         }
     }
     
-    private int getBeginPrice() throws Exception{
-        String fieldName = "begin-price";
-        priceBegin =Common.convertObectToInt(firebase.get(fieldName)+"");
-
+    private int getBeginPrice(String side) throws Exception{
+        String fieldName = "begin-price-"+side;
+        int priceBegin =Common.convertObectToInt(firebase.get(fieldName)+"");
         if(priceBegin== Constant.NOT_FOUND){
            throw new Exception("\n\t\tERROR don't get begin price value");
         }
@@ -104,36 +109,38 @@ public class MyStartupRunner {
         this.initSuccess =result;
     }
 
-    public static long getStartTime() {
-        return startTime;
+    public static long getStartTime(String side) {
+        if("SELL".equals(side)){
+            return  MyStartupRunner.startTime_SEL;
+        }else if("BUY".equals(side)){
+            return MyStartupRunner.startTime_BUY;
+        }
+        return -1;
+       
     }
 
-    public static void setStartTime(long startTime) {
-        MyStartupRunner.startTime = startTime;
+    public void setStartTimeSELL(long startTime) {
+        this.startTime_SEL = startTime;;
+    }
+    public void setStartTimeBUY(long startTime) {
+        this.startTime_BUY = startTime;;
     }
 
     public static int getSpacePriceInt() {
         return spacePriceInt;
     }
     public static int getSpacePriceBenefit() {
-        return (spacePriceInt*3)/2;
+        return spacePriceInt;
     }
 
     public static void setSpacePriceInt(int spacePriceInt) {
         MyStartupRunner.spacePriceInt = spacePriceInt;
     }
-    private boolean isBotBuy(){
-        return Constant.SIDE_BUY.equalsIgnoreCase(MyStartupRunner.botType);
-    }
-    private boolean isBotSell(){
-        return Constant.SIDE_SELL.equalsIgnoreCase(MyStartupRunner.botType);
-    }
-
     public boolean isRunBotBuy() {
-        return this.initSuccess && Constant.SIDE_BUY.equalsIgnoreCase(MyStartupRunner.botType);
+        return this.initSuccess ;
     }
 
     public boolean isRunBotSell() {
-        return this.initSuccess && Constant.SIDE_SELL.equalsIgnoreCase(MyStartupRunner.botType);
+        return this.initSuccess ;
     }
 }

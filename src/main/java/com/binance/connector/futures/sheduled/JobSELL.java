@@ -39,7 +39,7 @@ public class JobSELL {
     }
     
     private synchronized void loadOrder() {
-        JSONArray jsonArray = apiController.getTradeHistory();
+        JSONArray jsonArray = apiController.getTradeHistory("SELL");
         if (jsonArray == null || jsonArray.isEmpty()) {
             return;
         }
@@ -50,7 +50,7 @@ public class JobSELL {
             if(orderIdSuccess.contains(orderId)){
                 continue;
             }
-            Map<String, Object> map = firebase.getDoucment(orderId);
+            Map<String, Object> map = firebase.getDoucment("SELL_"+orderId);
             if (map == null) {
                 orderIdSuccess.add(orderId);
                 continue;
@@ -78,8 +78,10 @@ public class JobSELL {
                     map.put("id-buy", idBuy);
                     map.put("price-buy-open", priceBuyMaker);
                     map.put("time-buy", dateFormat);
-                    firebase.addOrder(idBuy, map);
-                    firebase.delete(orderId, "positions");
+                    firebase.addOrder("SELL_"+idBuy, map);
+
+                    String collactionName = Constant.SYMBOL+"_positions";
+                    firebase.delete("SELL_"+orderId, collactionName);
                 }
             } else if (side.equals("BUY")) {
                 String statusBuy = (String) map.get("status-buy");
@@ -90,7 +92,7 @@ public class JobSELL {
                     if (result == null || result.isBlank()) {
                         continue;
                     }
-                    firebase.addOrder(result);
+                    firebase.addOrder(result,"SELL");
                     // step 2 . update firebase.
                     JSONObject jsonOb = new JSONObject(result);
                     String idSellNew = Common.convertObectToString(jsonOb.get("orderId"));
@@ -101,8 +103,8 @@ public class JobSELL {
                     map.put("price-buy-success", priceBuySuccess);
                     map.put("qty-buy", qtyBuy);
                     // firebase.updateDocumentField(orderId, map);
-                    firebase.delete(orderId, "positions");
-                    firebase.addOrderLog(orderId, map);
+                    firebase.delete("SELL_"+orderId, "positions");
+                    firebase.addOrderLog(orderId, map,"SELL");
                     // check 
                 }
             }
