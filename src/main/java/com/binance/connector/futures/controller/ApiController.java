@@ -111,7 +111,7 @@ public class ApiController {
             jsonaArrayTraceListOld = new JSONArray(result);
             return  jsonArray;
         }catch(Exception e){
-            logger.error(e.getMessage());
+            logger.error("getTradeHistory Error {}" + e.getMessage());
             return null;
         }
     }
