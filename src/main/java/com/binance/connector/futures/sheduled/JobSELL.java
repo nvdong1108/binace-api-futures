@@ -79,9 +79,7 @@ public class JobSELL {
                     map.put("price-buy-open", priceBuyMaker);
                     map.put("time-buy", dateFormat);
                     firebase.addOrder("SELL_"+idBuy, map);
-
-                    String collactionName = Constant.SYMBOL+"_positions";
-                    firebase.delete("SELL_"+orderId, collactionName);
+                    firebase.delete("SELL_"+orderId, Constant.FB_POSITIONS);
                 }
             } else if (side.equals("BUY")) {
                 String statusBuy = (String) map.get("status-buy");
@@ -103,7 +101,7 @@ public class JobSELL {
                     map.put("price-buy-success", priceBuySuccess);
                     map.put("qty-buy", qtyBuy);
                     // firebase.updateDocumentField(orderId, map);
-                    firebase.delete("SELL_"+orderId, "positions");
+                    firebase.delete("SELL_"+orderId, Constant.FB_POSITIONS);
                     firebase.addOrderLog(orderId, map,"SELL");
                     // check 
                 }

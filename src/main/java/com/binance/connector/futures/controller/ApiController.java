@@ -26,14 +26,14 @@ public class ApiController {
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
 
     
-    //  UMFuturesClientImpl client  = new UMFuturesClientImpl(
-    //     PrivateConfig.API_KEY, 
-    //     PrivateConfig.SECRET_KEY, 
-    //     PrivateConfig.UM_BASE_URL); 
-    UMFuturesClientImpl client  = new UMFuturesClientImpl(
-            PrivateConfig.TESTNET_API_KEY, 
-            PrivateConfig.TESTNET_SECRET_KEY, 
-            PrivateConfig.TESTNET_BASE_URL); 
+      UMFuturesClientImpl client  = new UMFuturesClientImpl(
+         PrivateConfig.API_KEY, 
+         PrivateConfig.SECRET_KEY, 
+         PrivateConfig.UM_BASE_URL); 
+    //UMFuturesClientImpl client  = new UMFuturesClientImpl(
+      //      PrivateConfig.TESTNET_API_KEY, 
+        //    PrivateConfig.TESTNET_SECRET_KEY, 
+          //  PrivateConfig.TESTNET_BASE_URL); 
 
     
     public String newOrders(int price, double quantity, String side){
@@ -89,13 +89,13 @@ public class ApiController {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
            
             parameters.put("symbol", Constant.SYMBOL);
-            parameters.put("limit", "15");
-            long startTime = MyStartupRunner.getStartTime(side);
+            parameters.put("limit", "10");
+            //long startTime = MyStartupRunner.getStartTime(side);
             
-            if(startTime!=-1){
-                parameters.put("startTime", startTime);
-                parameters.put("endTime", new Date().getTime());
-            }
+            // if(startTime>0){
+            //     parameters.put("startTime", startTime);
+            //     parameters.put("endTime", new Date().getTime());
+            // }
             String result = client.account().accountTradeList(parameters);
             if(result==null || result.isBlank()){
                 return null;

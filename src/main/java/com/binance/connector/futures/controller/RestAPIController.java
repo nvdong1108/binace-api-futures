@@ -59,4 +59,18 @@ public class RestAPIController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
          }
     }
+
+    @PostMapping("/deleteLog")
+    public ResponseEntity<Object> deleteLog(@RequestBody Map<String,Object> requestBody) {
+        try {
+            firebase.deleAll(Constant.FB_LOG,"BUY");
+            firebase.deleAll(Constant.FB_POSITIONS,"BUY");
+            firebase.deleAll(Constant.FB_LOG,"SELL");
+            firebase.deleAll(Constant.FB_POSITIONS,"SELL");     
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return ResponseEntity.ok(" delete Success ");
+    }
+
 }

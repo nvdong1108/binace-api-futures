@@ -49,7 +49,7 @@ public class MyStartupRunner {
                 setStartTimeSELL(startTime);
                 createNewBot("SELL");
             }else {
-                long _startTimeSELL = (long)firebase.get("startTime_SELL");
+                long _startTimeSELL =Common.convertObectToLong(firebase.get("startTime_SELL"));
                 setStartTimeSELL(_startTimeSELL);
             }
             // 
@@ -60,7 +60,7 @@ public class MyStartupRunner {
                 setStartTimeBUY(startTime);
                 createNewBot("BUY");
             }else {
-                long _startTimeBUY = (long)firebase.get("startTime_BUY");
+                long _startTimeBUY = Common.convertObectToLong(firebase.get("startTime_BUY"));
                 setStartTimeBUY(_startTimeBUY);
             }
 
@@ -73,8 +73,8 @@ public class MyStartupRunner {
 
     public synchronized void createNewBot(String side) throws Exception{
         api.cancelAllOpenOrders(side);
-        firebase.deleAll(Constant.SYMBOL+"_log",side);
-        firebase.deleAll(Constant.SYMBOL+"_positions",side);
+        firebase.deleAll(Constant.FB_LOG,side);
+        firebase.deleAll(Constant.FB_POSITIONS,side);
         int priceBeginSide=getBeginPrice(side);
         log.info("\n\n"+
                  "------>   START BOT WITH : Price begin = {}    <-----\n",priceBeginSide);
@@ -130,7 +130,7 @@ public class MyStartupRunner {
         return spacePriceInt;
     }
     public static int getSpacePriceBenefit() {
-        return spacePriceInt;
+        return (spacePriceInt+50);
     }
 
     public static void setSpacePriceInt(int spacePriceInt) {

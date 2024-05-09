@@ -99,7 +99,7 @@ public class ApiFirebase {
             dataFild.put("time-"+side,dateFormat);
             field.put(jobSide+"_"+orderId,dataFild);
 
-            String collectionName = Constant.SYMBOL + "_positions";
+            String collectionName = Constant.FB_POSITIONS;
             ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
             .document(jobSide+"_"+orderId).set(dataFild);
             future.isDone();
@@ -113,7 +113,7 @@ public class ApiFirebase {
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
             field.put(orderId,dataFild);
-            String collectionName = Constant.SYMBOL + "_positions";
+            String collectionName = Constant.FB_POSITIONS;
             ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
             .document(orderId).set(dataFild);
             future.isDone();
@@ -127,7 +127,7 @@ public class ApiFirebase {
         Map<String,Object> field = new HashMap<>(); 
         field.put(fieldName,value);
 
-        String collectionName = Constant.SYMBOL + "_constant";
+        String collectionName = Constant.FB_CONSTANT;
         ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
         .document(fieldName).set(field);
         future.isDone();
@@ -138,7 +138,7 @@ public class ApiFirebase {
         Map<String,Object> field = new HashMap<>(); 
         field.put(side+"_"+orderId,value);
 
-        String collectionName = Constant.SYMBOL + "_log";
+        String collectionName = Constant.FB_LOG;
         ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
         .document(side+"_"+orderId).set(field);
         future.isDone();
@@ -158,15 +158,17 @@ public class ApiFirebase {
     public void deleAll(String collectionName,String side){
         Firestore dbFirestore = FirestoreClient.getFirestore();
         try {
+            int count = 0;
             ApiFuture<QuerySnapshot> future = dbFirestore.collection(collectionName).get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             for (QueryDocumentSnapshot document : documents) {
                String orderId = document.getId();
                if(orderId.contains(side)){
                     delete(orderId,collectionName);
+                    count++;
                }
               }
-              logger.info("\n\n------>   DELETE ALL Data Firebase Positons Success\n");
+              logger.info("\n\n------>   DELETE Data Firebase {}, Side {}, Success {} \n",collectionName,side,count);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -176,7 +178,7 @@ public class ApiFirebase {
     public  boolean updateDocumentField(String orderId, Map<String, Object> updates) {
         Firestore dbFirestore = FirestoreClient.getFirestore();
 
-        String collectionName = Constant.SYMBOL + "_positions";
+        String collectionName = Constant.FB_POSITIONS;
         DocumentReference documentReference = dbFirestore.collection(collectionName).document(orderId);
         try {
             ApiFuture<WriteResult> future = documentReference.update(updates);

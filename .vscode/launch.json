@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
             "name": "AccountTradeList",
             "request": "launch",
             "mainClass": "examples.cm_futures.account.AccountTradeList",
