@@ -31,7 +31,7 @@ public class JobSELL {
 
     private List<String> orderIdSuccess = new ArrayList<>();
 
-    @Scheduled(fixedDelay = 6500)
+    //@Scheduled(fixedDelay = 6500)
     private void updateDocument() {
         if (myStartupRunner.isRunBotSell()) {
             loadOrder();

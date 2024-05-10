@@ -174,6 +174,27 @@ public class ApiFirebase {
         }
     }
 
+    public long getPriceSellLowest(){
+        try {
+            Firestore dbFirestore = FirestoreClient.getFirestore();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collection(Constant.FB_POSITIONS).get();
+            List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+            if(documents == null  || documents.isEmpty()){
+                return -1l;
+            }
+            long priceLowest = 0;
+            for (QueryDocumentSnapshot document : documents) {
+                long price =Common.convertObectToLong(document.get("price-sell"));
+                if(priceLowest==0 || priceLowest > price){
+                    priceLowest=price;
+                }
+            }
+            return priceLowest;
+        } catch (Exception e) {
+            return -1l;
+        }
+    }
+
 
     public  boolean updateDocumentField(String orderId, Map<String, Object> updates) {
         Firestore dbFirestore = FirestoreClient.getFirestore();

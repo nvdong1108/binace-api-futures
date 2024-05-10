@@ -30,7 +30,7 @@ public class JobBUY {
 
     private List<String> orderIdSuccess = new ArrayList<>();
 
-    @Scheduled(fixedDelay = 7000)
+    //@Scheduled(fixedDelay = 7000)
     private void updateDocument() {
         if (myStartupRunner.isRunBotBuy()) {
             loadOrder();

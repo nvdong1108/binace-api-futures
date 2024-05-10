@@ -149,4 +149,14 @@ public class ApiController {
             }
         }
     }
+
+
+    public long getPriceCurrent(String symbol){
+        LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
+        parameters.put("symbol", symbol);
+        String result = client.market().markPrice(parameters);
+        JSONObject jsonObject= new JSONObject(result);
+        Long price = Common.convertObectToLong(jsonObject.get("markPrice"));
+        return price;
+    }
 }
