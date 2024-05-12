@@ -1,3 +1,13 @@
+spacePriceInt:
+statusBot_SELL
+statusBot_BUY
+begin-price-SELL
+begin-price-BUY
+
+ETHUSDT_constant
+ETHUSDT_log
+ETHUSDT_positions
+
 
 
 Solution 2024/04/09

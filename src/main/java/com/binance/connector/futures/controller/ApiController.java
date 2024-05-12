@@ -26,14 +26,14 @@ public class ApiController {
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
 
     
-      UMFuturesClientImpl client  = new UMFuturesClientImpl(
-         PrivateConfig.API_KEY, 
-         PrivateConfig.SECRET_KEY, 
+     UMFuturesClientImpl client  = new UMFuturesClientImpl(
+        PrivateConfig.API_KEY, 
+     PrivateConfig.SECRET_KEY, 
          PrivateConfig.UM_BASE_URL); 
-    //UMFuturesClientImpl client  = new UMFuturesClientImpl(
-      //      PrivateConfig.TESTNET_API_KEY, 
-        //    PrivateConfig.TESTNET_SECRET_KEY, 
-          //  PrivateConfig.TESTNET_BASE_URL); 
+    ///UMFuturesClientImpl client  = new UMFuturesClientImpl(
+      ////      PrivateConfig.TESTNET_API_KEY, 
+        //  PrivateConfig.TESTNET_SECRET_KEY, 
+      //  PrivateConfig.TESTNET_BASE_URL); 
 
     
     public String newOrders(int price, double quantity, String side){
@@ -104,10 +104,10 @@ public class ApiController {
             if(jsonArray.length()==0){
                 return null;
             }
-            // boolean isEqual = Common.isEqual(jsonArray, jsonaArrayTraceListOld);
-            // if(isEqual){
-            //     return null;
-            // }
+             boolean isEqual = Common.isEqual(jsonArray, jsonaArrayTraceListOld);
+             if(isEqual){
+                 return null;
+             }
             jsonaArrayTraceListOld = new JSONArray(result);
             return  jsonArray;
         }catch(Exception e){

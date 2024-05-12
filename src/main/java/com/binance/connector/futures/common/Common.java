@@ -11,9 +11,9 @@ public class Common {
     public static int comparePrice(int price , int priceCompare) {
     int spacePrice = Math.abs(price-priceCompare);
     int difference = spacePrice% MyStartupRunner.getSpacePriceInt();;
-    if(difference >Constant.PRICE_LIMIT_DIFF){
-        return -1;
-    }
+    // if(difference >Constant.PRICE_LIMIT_DIFF){
+    //     return -1;
+    // }
     int value = spacePrice/MyStartupRunner.getSpacePriceInt();;
     return value;
    }
@@ -23,9 +23,9 @@ public class Common {
         JSONObject jsonObject = jsonArray.getJSONObject(i);
         int priceOpens = (int)Double.parseDouble(jsonObject.getString("price"));
         int numSub = Math.abs(price-priceOpens);
-        if(numSub==0 || numSub < Constant.PRICE_LIMIT_DIFF){
-            return true;
-        }
+        // if(numSub==0 || numSub < Constant.PRICE_LIMIT_DIFF){
+        //     return true;
+        // }
     }
     return false ;
    }
