@@ -97,8 +97,8 @@ public class MyStartupRunner {
                         priceOpenOrder = priceOpenOrder + getSpacePriceInt();
                     }
                 }
-                String  result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, side);
-                firebase.addOrder(result,side);
+                String  result = api.newOrders(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, side);
+                firebase.addOrderStatusNew(result,side);
             }
         }catch ( Exception ex){
             log.error("Error in class MyStartupRunner.openAllOrder {}",ex.getMessage());

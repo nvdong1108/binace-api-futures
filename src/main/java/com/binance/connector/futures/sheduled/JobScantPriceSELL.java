@@ -49,7 +49,7 @@ public class JobScantPriceSELL {
     public synchronized void getPriceSellOpenLowest() throws Exception{
         long price = firebase.getPriceSellLowest();
         if(price>0){
-            this.priceSellNext = price-MyStartupRunner.getSpacePriceInt();
+            priceSellNext = price-MyStartupRunner.getSpacePriceInt();
             isUpdatePriceOnFireBase =false;
         }
     }
@@ -63,7 +63,7 @@ public class JobScantPriceSELL {
             long price =Common.convertObectToLong(apiController.getPriceCurrent(Constant.SYMBOL));
             if(price<=priceSellNext){
                 String result= apiController.newOrders(Integer.parseInt(priceSellNext+""), Constant.QUANTITY_ONE_EXCHANGE, "SELL");
-                firebase.addOrder(result,"SELL");
+                firebase.addOrderStatusNew(result,"SELL");
                 priceSellNext=priceSellNext-MyStartupRunner.getSpacePriceInt();
                 isUpdatePriceOnFireBase=true;
             }

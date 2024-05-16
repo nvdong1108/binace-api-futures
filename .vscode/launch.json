@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NewOrder",
+            "request": "launch",
+            "mainClass": "examples.um_futures.account.NewOrder",
+            "projectName": "binance-futures-connector-java"
+        },
+        {
+            "type": "java",
             "name": "MarkPriceStream",
             "request": "launch",
             "mainClass": "examples.um_futures.websocket.MarkPriceStream",

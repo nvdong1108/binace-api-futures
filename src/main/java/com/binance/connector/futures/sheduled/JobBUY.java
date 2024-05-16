@@ -99,7 +99,7 @@ public class JobBUY {
                         if (result == null || result.isBlank()) {
                             continue;
                         }
-                        firebase.addOrder(result, "BUY");
+                        firebase.addOrderStatusNew(result, "BUY");
                         // step 2 . update firebase.
                         JSONObject jsonOb = new JSONObject(result);
                         String idBuyNew = Common.convertObectToString(jsonOb.get("orderId"));

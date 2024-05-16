@@ -43,14 +43,14 @@ public class RestAPIController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Request Body");
         }
          try {
-            String  result = apiController.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE,side);
+            String  result = apiController.newOrders(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE,side);
             if(result.equalsIgnoreCase("-2019")){
                 Map<String,Object> mstObj = new HashMap<>();
                 mstObj.put("code", "-2019");
                 mstObj.put("msg", "Margin is insufficient");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mstObj);
             }
-            firebase.addOrder(result,side);
+            firebase.addOrderStatusNew(result,side);
             JSONObject jsonObject = new JSONObject(result);
             String orderId =Common.convertObectToString(jsonObject.get("orderId"));
             logger.info("***** SUCCESS OrderId = {} ***** ",orderId);

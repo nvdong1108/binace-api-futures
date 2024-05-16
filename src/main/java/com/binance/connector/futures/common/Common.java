@@ -61,6 +61,13 @@ public class Common {
         return (int)obj;
     }
 
-
-
+    public static double convertObectToDouble(Object obj){
+        if(obj==null){
+            return -1;
+        }
+        if(obj instanceof String || obj instanceof Long || obj instanceof Integer ){
+            return Double.parseDouble(obj+"");
+        }
+        return (double)obj;
+    }
 }

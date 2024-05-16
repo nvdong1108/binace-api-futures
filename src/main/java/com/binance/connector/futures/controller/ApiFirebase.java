@@ -75,7 +75,7 @@ public class ApiFirebase {
         }
     }
     
-    public void addOrder(String result,String jobSide){
+    public void addOrderStatusNew(String result,String jobSide){
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
             JSONObject  jsonObject = new JSONObject(result);
@@ -83,15 +83,18 @@ public class ApiFirebase {
             int price= Common.convertObectToInt(jsonObject.getString("price")) ;
             String side = jsonObject.getString("side").toLowerCase();
             long time = Common.convertObectToLong(jsonObject.get("updateTime"));
+            double origQty = Common.convertObectToDouble(jsonObject.get("origQty"));
+
             Date date = new Date(time);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateFormat = simpleDateFormat.format(date);
 
             Map<String,Object> dataFild = new HashMap<>();
             dataFild.put("id-"+side,orderId);
-            dataFild.put("status-"+side,"NEW");
             dataFild.put("price-"+side,price);
+            dataFild.put("status-"+side,"NEW");
             dataFild.put("time-"+side,dateFormat);
+            dataFild.put("origQty",origQty);
             field.put(jobSide+"_"+orderId,dataFild);
 
             String collectionName = Constant.FB_POSITIONS;

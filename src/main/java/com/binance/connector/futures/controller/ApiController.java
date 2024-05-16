@@ -37,6 +37,7 @@ public class ApiController {
 
     
     public String newOrders(int price, double quantity, String side) throws Exception{
+        String result=null;
         try {
             DecimalFormat decimalFormat = new DecimalFormat("#.###");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
@@ -48,38 +49,16 @@ public class ApiController {
             parameters.put("quantity", decimalFormat.format(quantity));
             parameters.put("price", price);
        
-           String result =client.account().newOrder(parameters);
+           result =client.account().newOrder(parameters);
             logger.info("\n\n"+
                         "------>   RETURN : creat {}  price={} success  <------\n",side,price);
-                        return result;
+           return result;
         } catch (Exception e) {
-            logger.error("newOrders Error fullErrMessage: {}", e.getMessage(), e);
+            logger.error("newOrders Error fullErrMessage: {}", e.getMessage());
             throw  new Exception(String.format("Error in class ApiController.newOrders :  %s",e.getMessage()));
         }
     }
-    public String newOrdersFirstTime(int price, double quantity, String side) throws Exception{
-        String result = null;
-        try {
-            DecimalFormat decimalFormat = new DecimalFormat("#.###");
-            LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
-            logger.info("\n\n------>   BEGIN  : Create New Order {}            <------\n",side);
-            
-            parameters = new LinkedHashMap<>();
-            parameters.put("symbol", Constant.SYMBOL);
-            parameters.put("side", side);
-            parameters.put("type", "LIMIT");
-            parameters.put("timeInForce", "GTC");
-            parameters.put("quantity", decimalFormat.format(quantity));
-            parameters.put("price", price);
-       
-            result=client.account().newOrder(parameters);
-            logger.info("\n\n"+
-                        "------>   RETURN : creat {}  price={} success  <------\n",side,price);
-            return result;
-        } catch (Exception e) {
-            throw  new Exception(String.format("Error in class ApiController.newOrdersFirstTime : %s",e.getMessage()));
-        }
-    }
+  
     public synchronized JSONArray getTradeHistory() throws  Exception{
         try {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();

@@ -8,6 +8,7 @@ import com.binance.connector.futures.config.Constant;
 import com.binance.connector.futures.controller.ApiController;
 import com.binance.connector.futures.controller.ApiFirebase;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,11 +64,13 @@ public class JobSELL {
                 }
                 if (side.equalsIgnoreCase("SELL")) {
                     String status = (String) map.get("status-sell");
+                    DecimalFormat decimalFormat = new DecimalFormat("#.###");
                     if (status.equals("NEW")) {
                         // create order BUY NEW
                         int priceSell = Common.convertObectToInt(map.get("price-sell"));
                         int priceOpenBuy = priceSell - MyStartupRunner.getSpacePriceBenefit();
-                        String result = apiController.newOrders(priceOpenBuy, Constant.QUANTITY_ONE_EXCHANGE, "BUY");
+                        double origQty =Common.convertObectToDouble(map.get("origQty"));
+                        String result = apiController.newOrders(priceOpenBuy, origQty, "BUY");
                         if (result == null || result.isBlank()) {
                             continue;
                         }
@@ -92,11 +95,12 @@ public class JobSELL {
                     if ("NEW".equals(statusBuy)) {
                         // step 1 . new buy
                         int priceSelOld = Common.convertObectToInt(map.get("price-sell"));
-                        String result = apiController.newOrders(priceSelOld, Constant.QUANTITY_ONE_EXCHANGE, "SELL");
+                        double origQty =Common.convertObectToDouble(map.get("origQty"));
+                        String result = apiController.newOrders(priceSelOld, origQty, "SELL");
                         if (result == null || result.isBlank()) {
                             continue;
                         }
-                        firebase.addOrder(result, "SELL");
+                        firebase.addOrderStatusNew(result, "SELL");
                         // step 2 . update firebase.
                         JSONObject jsonOb = new JSONObject(result);
                         String idSellNew = Common.convertObectToString(jsonOb.get("orderId"));
@@ -106,10 +110,8 @@ public class JobSELL {
                         map.put("status-buy", "DONE");
                         map.put("price-buy-success", priceBuySuccess);
                         map.put("qty-buy", qtyBuy);
-                        // firebase.updateDocumentField(orderId, map);
                         firebase.delete("SELL_" + orderId, Constant.FB_POSITIONS);
                         firebase.addOrderLog(orderId, map, "SELL");
-                        // check
                     }
                 }
             }
