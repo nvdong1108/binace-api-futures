@@ -21,22 +21,22 @@ import com.binance.connector.futures.sheduled.MyStartupRunner;
 @Component
 public class ApiController {
 
-    private JSONArray jsonaArrayTraceListOld= new JSONArray();
+
 
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
 
     
-     UMFuturesClientImpl client  = new UMFuturesClientImpl(
-        PrivateConfig.API_KEY, 
-     PrivateConfig.SECRET_KEY, 
-         PrivateConfig.UM_BASE_URL); 
-    ///UMFuturesClientImpl client  = new UMFuturesClientImpl(
-      ////      PrivateConfig.TESTNET_API_KEY, 
-        //  PrivateConfig.TESTNET_SECRET_KEY, 
-      //  PrivateConfig.TESTNET_BASE_URL); 
+    // UMFuturesClientImpl client  = new UMFuturesClientImpl(
+    //    PrivateConfig.API_KEY,
+   //  PrivateConfig.SECRET_KEY,
+    //     PrivateConfig.UM_BASE_URL);
+    UMFuturesClientImpl client  = new UMFuturesClientImpl(
+           PrivateConfig.TESTNET_API_KEY,
+          PrivateConfig.TESTNET_SECRET_KEY,
+        PrivateConfig.TESTNET_BASE_URL);
 
     
-    public String newOrders(int price, double quantity, String side){
+    public String newOrders(int price, double quantity, String side) throws Exception{
         try {
             DecimalFormat decimalFormat = new DecimalFormat("#.###");
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
@@ -54,10 +54,10 @@ public class ApiController {
                         return result;
         } catch (Exception e) {
             logger.error("newOrders Error fullErrMessage: {}", e.getMessage(), e);
-            return null;
+            throw  new Exception(String.format("Error in class ApiController.newOrders :  %s",e.getMessage()));
         }
     }
-    public String newOrdersFirstTime(int price, double quantity, String side){
+    public String newOrdersFirstTime(int price, double quantity, String side) throws Exception{
         String result = null;
         try {
             DecimalFormat decimalFormat = new DecimalFormat("#.###");
@@ -75,27 +75,17 @@ public class ApiController {
             result=client.account().newOrder(parameters);
             logger.info("\n\n"+
                         "------>   RETURN : creat {}  price={} success  <------\n",side,price);
-        } catch (BinanceConnectorException e) {
-            logger.error("newOrders Error fullErrMessage: {}", e.getMessage(), e);
-        } catch (BinanceClientException e) {
-            logger.error("newOrders Error  fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
-                    e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
+            return result;
+        } catch (Exception e) {
+            throw  new Exception(String.format("Error in class ApiController.newOrdersFirstTime : %s",e.getMessage()));
         }
-        return result;
     }
-    
-    public synchronized JSONArray getTradeHistory(String side){
+    public synchronized JSONArray getTradeHistory() throws  Exception{
         try {
             LinkedHashMap<String, Object> parameters  = new LinkedHashMap<>();
            
             parameters.put("symbol", Constant.SYMBOL);
             parameters.put("limit", "10");
-            //long startTime = MyStartupRunner.getStartTime(side);
-            
-            // if(startTime>0){
-            //     parameters.put("startTime", startTime);
-            //     parameters.put("endTime", new Date().getTime());
-            // }
             String result = client.account().accountTradeList(parameters);
             if(result==null || result.isBlank()){
                 return null;
@@ -104,15 +94,14 @@ public class ApiController {
             if(jsonArray.length()==0){
                 return null;
             }
-             boolean isEqual = Common.isEqual(jsonArray, jsonaArrayTraceListOld);
+             boolean isEqual = PrivateConfig.isEqualArrayTraceList(jsonArray);
              if(isEqual){
                  return null;
              }
-            jsonaArrayTraceListOld = new JSONArray(result);
             return  jsonArray;
         }catch(Exception e){
-            logger.error("getTradeHistory Error {}" + e.getMessage());
-            return null;
+            PrivateConfig.resetJsonaArrayTraceListOld();
+            throw new Exception(String.format("Error in class ApiController.getTradeHistory : %s ",e.getMessage()));
         }
     }
 

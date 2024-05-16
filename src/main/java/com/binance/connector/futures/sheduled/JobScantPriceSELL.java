@@ -2,6 +2,7 @@ package com.binance.connector.futures.sheduled;
 
 import java.util.LinkedHashMap;
 
+import com.binance.connector.futures.controller.BotPutMessageLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -25,11 +26,14 @@ public class JobScantPriceSELL {
     @Autowired
     ApiFirebase firebase;
 
+    @Autowired
+    BotPutMessageLog botPutMessageLog;
+
     private static Long priceSellNext = null;
 
     boolean isUpdatePriceOnFireBase = true;
 
-    @Scheduled(fixedDelay = 7000)
+   @Scheduled(fixedDelay = 7000)
     private void before(){
         if((myStartupRunner.isRunBotSell())){
             try {
@@ -52,15 +56,20 @@ public class JobScantPriceSELL {
 
     @Scheduled(fixedDelay = 5000)
     private synchronized void getPriceCurrent(){
-        if(priceSellNext==null){
-            return;
-        }
-        long price =Common.convertObectToLong(apiController.getPriceCurrent(Constant.SYMBOL));
-        if(price<=priceSellNext){
-            String result= apiController.newOrders(Integer.parseInt(priceSellNext+""), Constant.QUANTITY_ONE_EXCHANGE, "SELL");
-            firebase.addOrder(result,"SELL");
-            priceSellNext=priceSellNext-MyStartupRunner.getSpacePriceInt();
-            isUpdatePriceOnFireBase=true;
+        try {
+            if(priceSellNext==null){
+                return;
+            }
+            long price =Common.convertObectToLong(apiController.getPriceCurrent(Constant.SYMBOL));
+            if(price<=priceSellNext){
+                String result= apiController.newOrders(Integer.parseInt(priceSellNext+""), Constant.QUANTITY_ONE_EXCHANGE, "SELL");
+                firebase.addOrder(result,"SELL");
+                priceSellNext=priceSellNext-MyStartupRunner.getSpacePriceInt();
+                isUpdatePriceOnFireBase=true;
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            botPutMessageLog.post( String.format(" Error in class JobScantPriceSELL : %s",ex.getMessage()));
         }
     }
 }

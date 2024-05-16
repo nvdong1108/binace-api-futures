@@ -2,6 +2,7 @@ package com.binance.connector.futures.sheduled;
 
 import java.util.Date;
 
+import com.binance.connector.futures.controller.BotPutMessageLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,10 @@ public class MyStartupRunner {
     ApiController api;
 
     @Autowired
-    ApiFirebase firebase ; 
+    ApiFirebase firebase ;
+
+    @Autowired
+    BotPutMessageLog botPutMessageLog;
 
     @PostConstruct
     public void init() {
@@ -84,16 +88,21 @@ public class MyStartupRunner {
     }
 
     private void openAllOrder(int priceOpenOrder, String side ){
-        for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
-            if(i>0) {
-                if("BUY".equals(side)){
-                    priceOpenOrder = priceOpenOrder - getSpacePriceInt();
-                }else if("SELL".equals(side)){
-                    priceOpenOrder = priceOpenOrder + getSpacePriceInt();
+        try {
+            for(int i = 0 ; i < Constant.QUANTIYY_OPEN_ORDES ; i ++){
+                if(i>0) {
+                    if("BUY".equals(side)){
+                        priceOpenOrder = priceOpenOrder - getSpacePriceInt();
+                    }else if("SELL".equals(side)){
+                        priceOpenOrder = priceOpenOrder + getSpacePriceInt();
+                    }
                 }
+                String  result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, side);
+                firebase.addOrder(result,side);
             }
-            String  result = api.newOrdersFirstTime(priceOpenOrder,Constant.QUANTITY_ONE_EXCHANGE, side);
-            firebase.addOrder(result,side);
+        }catch ( Exception ex){
+            log.error("Error in class MyStartupRunner.openAllOrder {}",ex.getMessage());
+            botPutMessageLog.post( String.format("Error in class MyStartupRunner.openAllOrder : %s",ex.getMessage()));
         }
     }
     

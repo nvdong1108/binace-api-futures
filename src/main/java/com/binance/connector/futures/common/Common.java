@@ -62,20 +62,5 @@ public class Common {
     }
 
 
-    public static boolean isEqual(JSONArray array1, JSONArray array2) {
-        if (array1.length() != array2.length()) {
-            return false;
-        }
-        for (int i = 0; i < array1.length(); i++) {
-            try {
-                if (!array1.getJSONObject(i).toString().equals(array2.getJSONObject(i).toString())) {
-                    return false;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return true;
-    }
+
 }

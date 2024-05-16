@@ -50,17 +50,13 @@ public class ApiFirebase {
             return null;
         }
     }
-    public Map<String,Object> getDoucment(String orderId){
+    public Map<String,Object> getDoucment(String orderId) throws Exception {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         String collectionName = Constant.SYMBOL + "_positions";
         DocumentReference documentsReference =  dbFirestore.collection(collectionName).document(orderId);
-        try{
-            ApiFuture<DocumentSnapshot> future= documentsReference.get();
-            return apiFutureToMap(future);
-        }catch(Exception ex){
-            ex.printStackTrace();
-            return null;
-        }
+        ApiFuture<DocumentSnapshot> future= documentsReference.get();
+        return apiFutureToMap(future);
+
     }
     public static Map<String, Object> apiFutureToMap(ApiFuture<DocumentSnapshot> apiFuture) {
         try {
@@ -79,8 +75,7 @@ public class ApiFirebase {
         }
     }
     
-    public boolean addOrder(String result,String jobSide){
-        try{
+    public void addOrder(String result,String jobSide){
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
             JSONObject  jsonObject = new JSONObject(result);
@@ -103,13 +98,8 @@ public class ApiFirebase {
             ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
             .document(jobSide+"_"+orderId).set(dataFild);
             future.isDone();
-            return true;
-        }catch(Exception e){
-            return false;
-        }
     }
-    public  boolean addOrder(String orderId, Map<String, Object> dataFild) {
-        try{
+    public  void addOrder(String orderId, Map<String, Object> dataFild) {
             Firestore dbFirestore = FirestoreClient.getFirestore();
             Map<String,Object> field = new HashMap<>(); 
             field.put(orderId,dataFild);
@@ -117,10 +107,6 @@ public class ApiFirebase {
             ApiFuture<WriteResult> future =  dbFirestore.collection(collectionName)
             .document(orderId).set(dataFild);
             future.isDone();
-            return true;
-        }catch(Exception e){
-            return false;
-        }
     }
     public void add(String fieldName,Object value){
         Firestore dbFirestore = FirestoreClient.getFirestore();
@@ -194,23 +180,6 @@ public class ApiFirebase {
             return -1l;
         }
     }
-
-
-    public  boolean updateDocumentField(String orderId, Map<String, Object> updates) {
-        Firestore dbFirestore = FirestoreClient.getFirestore();
-
-        String collectionName = Constant.FB_POSITIONS;
-        DocumentReference documentReference = dbFirestore.collection(collectionName).document(orderId);
-        try {
-            ApiFuture<WriteResult> future = documentReference.update(updates);
-            future.get();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
 
     private Map<String, Object> convertObjectToHashMap(Object object) {
         Map<String, Object> hashMap = new HashMap<>();

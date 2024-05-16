@@ -14,8 +14,8 @@ public class BotAplication {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(BotAplication.class);
         app.setDefaultProperties(Collections
-          .singletonMap("server.port", "8083"));
+          .singletonMap("server.port", "8888"));
           app.run(args);
-        // SpringApplication.run(BotAplication.class,args);
+        //SpringApplication.run(BotAplication.class,args);
     }
 }

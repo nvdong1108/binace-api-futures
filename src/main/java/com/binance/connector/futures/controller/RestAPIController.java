@@ -72,5 +72,17 @@ public class RestAPIController {
         }
         return ResponseEntity.ok(" delete Success ");
     }
+    @PostMapping("/test")
+    public ResponseEntity<Object> test(@RequestBody Map<String,Object> requestBody) {
+        try {
+            String messsage = requestBody.get("message").toString();
+            BotPutMessageLog botPutMessageLog = new BotPutMessageLog();
+            botPutMessageLog.post(messsage);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return ResponseEntity.ok(" delete Success ");
+    }
+
 
 }
