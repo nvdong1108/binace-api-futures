@@ -2,6 +2,8 @@ package com.binance.connector.futures.sheduled;
 
 import com.binance.connector.futures.config.PrivateConfig;
 import com.binance.connector.futures.controller.BotPutMessageLog;
+import com.binance.connector.futures.module.NotificationCreateOrderSuccessModule;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
@@ -34,6 +36,8 @@ public class JobBUY {
 
     @Autowired
     BotPutMessageLog botPutMessageLog;
+
+
 
 
 
@@ -89,6 +93,10 @@ public class JobBUY {
                         map.put("time-sell", dateFormat);
                         firebase.addOrder(("BUY_" + idSell), map);
                         firebase.delete("BUY_" + orderId, Constant.FB_POSITIONS);
+                        // push notification
+                        NotificationCreateOrderSuccessModule noti = new NotificationCreateOrderSuccessModule(map,
+                                String.format("%s SUCCESS WIDTH INFO",side));
+                        botPutMessageLog.post(noti.toString());
                     }
                 } else if (side.equals("SELL")) {
                     String statusSell = (String) map.get("status-sell");
@@ -111,6 +119,10 @@ public class JobBUY {
                         map.put("qty-sell", qtySell);
                         firebase.delete("BUY_" + orderId, Constant.FB_POSITIONS);
                         firebase.addOrderLog(orderId, map, "BUY");
+                        // push notification
+                        NotificationCreateOrderSuccessModule noti = new NotificationCreateOrderSuccessModule(map,
+                                String.format("%s SUCCESS WIDTH INFO",side));
+                        botPutMessageLog.post(noti.toString());
                     }
                 }
             }

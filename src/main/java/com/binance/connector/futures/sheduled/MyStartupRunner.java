@@ -6,6 +6,7 @@ import com.binance.connector.futures.controller.BotPutMessageLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.common.Common;
@@ -19,8 +20,7 @@ import jakarta.annotation.PostConstruct;
 public class MyStartupRunner {
 
     private boolean initSuccess = false;
-    //public static int priceBegin;
-    public static double sizePositionBegin;
+    public static String envActionJOB = "";
     private final static Logger log = LoggerFactory.getLogger(MyStartupRunner.class);
 
     public static  long startTime_SEL = -1l;
@@ -36,10 +36,12 @@ public class MyStartupRunner {
     @Autowired
     BotPutMessageLog botPutMessageLog;
 
+    @Autowired
+    Environment environment;
+
     @PostConstruct
     public void init() {
         try{
-            
             int _spacePriceInt =Common.convertObectToInt(firebase.get("spacePriceInt"));
             if(_spacePriceInt == -1){
                 throw new Exception("don't get space price value");
@@ -67,8 +69,8 @@ public class MyStartupRunner {
                 long _startTimeBUY = Common.convertObectToLong(firebase.get("startTime_BUY"));
                 setStartTimeBUY(_startTimeBUY);
             }
-
             setResultInitSuccess(true);
+            envActionJOB = environment.getProperty("JOB_ACTION");
         }catch (Exception ex){
             log.error("\n\t\t****RETURN ERROR : {}\n",ex);
         }
@@ -146,10 +148,10 @@ public class MyStartupRunner {
         MyStartupRunner.spacePriceInt = spacePriceInt;
     }
     public boolean isRunBotBuy() {
-        return this.initSuccess ;
+        return this.initSuccess  && "ON".equals(envActionJOB) ;
     }
 
     public boolean isRunBotSell() {
-        return this.initSuccess ;
+        return this.initSuccess && "ON".equals(envActionJOB);
     }
 }

@@ -20,9 +20,6 @@ import com.binance.connector.futures.sheduled.MyStartupRunner;
 
 @Component
 public class ApiController {
-
-
-
     private final static Logger logger = LoggerFactory.getLogger(ApiController.class);
 
     

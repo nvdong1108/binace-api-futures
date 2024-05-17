@@ -2,6 +2,8 @@ package com.binance.connector.futures.config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,4 +74,5 @@ public final class PrivateConfig {
         }
         return true;
     }
+
 }

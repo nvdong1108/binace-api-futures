@@ -2,6 +2,7 @@ package com.binance.connector.futures.sheduled;
 
 import com.binance.connector.futures.config.PrivateConfig;
 import com.binance.connector.futures.controller.BotPutMessageLog;
+import com.binance.connector.futures.module.NotificationCreateOrderSuccessModule;
 import org.springframework.stereotype.Component;
 import com.binance.connector.futures.common.Common;
 import com.binance.connector.futures.config.Constant;
@@ -71,9 +72,6 @@ public class JobSELL {
                         int priceOpenBuy = priceSell - MyStartupRunner.getSpacePriceBenefit();
                         double origQty =Common.convertObectToDouble(map.get("origQty"));
                         String result = apiController.newOrders(priceOpenBuy, origQty, "BUY");
-                        if (result == null || result.isBlank()) {
-                            continue;
-                        }
                         JSONObject orderSell = new JSONObject(result);
 
                         String idBuy = Common.convertObectToString(orderSell.get("orderId"));
@@ -89,6 +87,10 @@ public class JobSELL {
                         map.put("time-buy", dateFormat);
                         firebase.addOrder("SELL_" + idBuy, map);
                         firebase.delete("SELL_" + orderId, Constant.FB_POSITIONS);
+                        // push notification
+                        NotificationCreateOrderSuccessModule noti = new NotificationCreateOrderSuccessModule(map,
+                                String.format("%s SUCCESS WIDTH INFO",side));
+                        botPutMessageLog.post(noti.toString());
                     }
                 } else if (side.equals("BUY")) {
                     String statusBuy = (String) map.get("status-buy");
@@ -112,12 +114,16 @@ public class JobSELL {
                         map.put("qty-buy", qtyBuy);
                         firebase.delete("SELL_" + orderId, Constant.FB_POSITIONS);
                         firebase.addOrderLog(orderId, map, "SELL");
+                        // push notification
+                        NotificationCreateOrderSuccessModule noti = new NotificationCreateOrderSuccessModule(map,
+                                String.format("%s SUCCESS WIDTH INFO",side));
+                        botPutMessageLog.post(noti.toString());
                     }
                 }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            botPutMessageLog.post(ex.getMessage());
+            botPutMessageLog.post("Error in class JobBUY : "+ex.getMessage());
             PrivateConfig.resetOrderIdIgnoreSell();
         }
     }
