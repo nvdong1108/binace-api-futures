@@ -16,7 +16,7 @@ import java.util.Map;
 
 @Component
 public class BotPutMessageLog {
-   public final String GROUP_MEDIUS_ID = "-4001382411";
+   public final String GROUP_ID = "-4001382411";
    public final String tokenBot = "6932623557:AAEYQqAgfywj2IKV_AzeRjH1ikv2cYDWbhU";
    public final int MAX_LENGTH_MESSAGE = 4000;
 
@@ -29,7 +29,7 @@ public class BotPutMessageLog {
       HttpHeaders headers = new HttpHeaders();
       headers.setContentType(MediaType.APPLICATION_JSON);
       Map<String,Object> mapEntity = new HashMap<>();
-      mapEntity.put("chat_id",GROUP_MEDIUS_ID);
+      mapEntity.put("chat_id",GROUP_ID);
       mapEntity.put("text",validateMessage(message));
       HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(mapEntity, headers);
       ResponseEntity<String> responseEntity = restTemplate.postForEntity(apiUrl, requestEntity, String.class);
