@@ -16,6 +16,7 @@ import com.binance.connector.futures.controller.ApiFirebase;
 
 import jakarta.annotation.PostConstruct;
 
+
 @Component
 public class MyStartupRunner {
 

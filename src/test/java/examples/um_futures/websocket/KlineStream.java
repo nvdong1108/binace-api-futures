@@ -8,9 +8,9 @@ public final class KlineStream {
 
     public static void main(String[] args) {
         UMWebsocketClientImpl client = new UMWebsocketClientImpl();
-        client.klineStream("btcusdt", "1h", ((event) -> {
+        client.klineStream("btcusdt", "1m", ((event) -> {
             System.out.println(event);
-            client.closeAllConnections();
+            //client.closeAllConnections();
         }));
     }
 }

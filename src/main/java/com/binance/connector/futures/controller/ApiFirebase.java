@@ -36,7 +36,7 @@ public class ApiFirebase {
         ApiFuture<DocumentSnapshot> future =  dbFirestore.collection(collectionName).document(fieldName).get(fieldMask);
         try{
             DocumentSnapshot document = future.get();
-            if (!document.exists()) {+
+            if (!document.exists()) {
                 return null;
                 
             }
